@@ -1,0 +1,1 @@
+const delegate = (selector) => (cb) => (e) => e.target.matches(selector) && cb(e);

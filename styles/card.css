@@ -1,0 +1,22 @@
+#card-preview { 
+    width: 60vw;
+    height: 60vh;
+    padding: 20px;
+}
+
+#card-preview>canvas {
+    display: inline-block;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 0);
+    height: 60vh;
+    object-fit: cover;
+    border: 1px solid black;
+}
+
+@media screen and (max-width:767px),
+screen and (max-device-width:767px) {
+    #card-preview>canvas {
+        object-fit: contain;
+    }
+}
