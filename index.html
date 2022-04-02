@@ -39,7 +39,7 @@
     <div id="editor">
         <div id="content">
             <label for="content">What do you want to write on the calling card?</label>
-            <textarea name="content" cols="30" rows="10" onchange="redraw()"></textarea>
+            <textarea name="content" cols="30" rows="10" onchange="redrawBg()"></textarea>
         </div>
 
         <div id="options">
@@ -48,17 +48,17 @@
             <h2><i class="fa fa-arrows" style="transform:rotate(-10deg)"></i>Position</h2>
             <div id="text-options">
                 <label class="cb-container">
-                    <input type="checkbox" name="text-options" onclick="middleText(this)" onchange="redraw()" checked>
+                    <input type="checkbox" name="text-options" onclick="middleText(this)" onchange="redrawBg()" checked>
                     <span class="checkmark"></span>Put text in the middle
                 </label>
 
                 <label for="text-top">or shift text from top by</label>
-                <input type="number" name="text-top" id="text-top" min="0" max="2000" value="1000" onchange="redraw()" disabled>
+                <input type="number" name="text-top" id="text-top" min="0" max="2000" value="1000" onchange="redrawBg()" disabled>
                 px
                 <br>
 
                 <label for="text-align">then align text <span>in</span> the </label>
-                <select name="text-align" id="text-align" onchange="alignWordPointer(this);redraw()" style="transform:rotate(-3.5deg)">
+                <select name="text-align" id="text-align" onchange="alignWordPointer(this);redrawBg()" style="transform:rotate(-3.5deg)">
                     <option value="left">left</option>
                     <option value="center" selected>center</option>
                     <option value="right">right</option>
@@ -70,16 +70,16 @@
             <h2><i class="fa fa-font" style="transform:rotate(10deg)"></i>Fonts</h2>
             <div id="font-options">
                 <label for="font-family">Set family</label>
-                <input type="text" name="font-family" id="font-family" value="sans-serif" style="font-family:sans-serif">
+                <input type="text" name="font-family" id="font-family" value="sans-serif" placeholder="sans-serif" style="font-family:sans-serif">
                 <label for="font-size">with size of</label>
-                <input type="number" name="font-size" id="font-size" min="10" max="100" value="20" onchange="redraw()">
+                <input type="number" name="font-size" id="font-size" min="10" max="100" value="20" onchange="redrawBg()">
                 px.
             </div>
             <hr>
     
             <div id="show-logo">
                 <label class="cb-container">
-                    <input type="checkbox" name="show-logo" onclick="toggleLogo(this)" onchange="redraw()" checked>
+                    <input type="checkbox" name="show-logo" onclick="toggleLogo(this)" onchange="redrawBg()" checked>
                     <span class="checkmark"></span>
                     Show "Take your heart" logo
                 </label>
@@ -87,16 +87,16 @@
     
             <div id="logo-size">
                 <label for="logo-size">Scale logo by</label>
-                <input type="number" name="logo-size" id="logo-size-option" min="0" max="10" value="1" step="0.05" onchange="redraw()">
+                <input type="number" name="logo-size" id="logo-size-option" min="0" max="10" value="1" step="0.05" onchange="redrawBg()">
                 <label for="offset">with an offset of </label>
-                <input type="number" name="offset" id="logo-offset" min="0" max="1000" value="20" onchange="redraw()">
+                <input type="number" name="offset" id="logo-offset" min="0" max="1000" value="20" onchange="redrawBg()">
                 px.
             </div>
     
             <hr>
             <div id="wtm-option">
                 <label class="cb-container">
-                    <input type="checkbox" name="showWatermark" id="showWatermark" onclick="toggleWtmark(this)" checked onchange="redraw()">
+                    <input type="checkbox" name="showWatermark" id="showWatermark" onclick="toggleWtmark(this)" checked onchange="redrawBg()">
                     <span class="checkmark"></span>
                     Show watermark to this website
                 </label>
@@ -108,7 +108,7 @@
 
     <div id="actions" class="btn-groups">
         <button onclick="exportCard()"><i class="fa fa-arrow-circle-o-down"></i>Export this card</button>
-        <button onclick="redraw()"><i class="fa fa-refresh"></i>Refresh</button>
+        <button onclick="redrawBg();redrawText()"><i class="fa fa-refresh"></i>Refresh</button>
         <button onclick="clearCard(this)"><i class="fa fa-times-circle-o"></i>Clear</button>
     </div>
 
@@ -119,9 +119,11 @@
         <p>Assets used:</p>
         <ul>
             <li><a href="https://www.deviantart.com/elmind/art/Persona-5-Calling-Card-Base-676530039">Persona 5 Calling Card Base</a> by <a href="https://www.deviantart.com/elmind">Elmind</a>.</li>
-            <li><a href="https://typodermicfonts.com/earwig-factory-outlet/">Earwig Factory</a> on <a href="https://typodermicfonts.com/">Typodermicfonts</a>.</li>
-            <li>Persona 5 Logo and Assets by ALTUS under fair use.</li>
+            <li><a href="https://lzxhahaha.github.io/persona5/">Persona 5 Style Text Generator</a> by <a href="https://github.com/LzxHahaha">LzxHahaha</a>.<br>
+            Ported and rewritten by <a href="https://skyventuree.github.io">shigukk</a>.</li>
+            <li>Persona 5 Logo and Assets by ALTUS.</li>
         </ul>
+        <p>All assets are all under fair use.</p>
     </div>
 
     <p id="version">v.3.0</p>
@@ -133,8 +135,8 @@
     <script src="scripts/exporter.js"></script>
 
     <!-- Text related scripts -->
-    <script src="scripts/boxUtils.js"></script>
-    <script src="scripts/boxText.js"></script>
-    <script src="scripts/boxChar.js"></script>
+    <script src="scripts/textgen/utils.js"></script>
+    <script src="scripts/textgen/text.js"></script>
+    <script src="scripts/textgen/char.js"></script>
 </body>
 </html>

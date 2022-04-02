@@ -6,23 +6,23 @@ function toggleLogo(element) {
     document.querySelectorAll('#logo-size>input').forEach(function(e) {
         e.disabled = !showLogo;
     })
-    redraw()
+    redrawBg()
 }
 
 function toggleWtmark(element) {
     showWtm = element.checked;
-    redraw()
+    redrawBg()
 }
 
 function middleText(element) {
     isMiddle = element.checked;
     document.querySelector('#text-top').disabled = isMiddle;
-    redraw()
+    redrawBg()
 }
 
 function alignWordPointer(element) {
-    console.log(element.value);
     let pointerWord = document.querySelector('#text-options > label:nth-child(5) > span');
+    redrawText()
     if (element.value === "center") {
         pointerWord.innerHTML = 'in';
         return
@@ -40,7 +40,7 @@ function clearCard(element) {
         document.querySelector('#content > textarea').value = '';
         element.innerHTML = defaults;
         confirming = false;
-        redraw();
+        redrawText();
         return;
     }
 

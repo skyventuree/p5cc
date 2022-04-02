@@ -7,14 +7,14 @@ card.font = '34px KoreanKRSM';
 // load base card first
 var baseCard = new Image();
 baseCard.src = "assets/base.png";
-baseCard.onload = redraw;
+baseCard.onload = redrawBg;
 
 // logo initial size: 250 × 291
 var logo = new Image();
 logo.src = "assets/logo.png";
-logo.onload = redraw;
+logo.onload = redrawBg;
 
-function redraw(updateText = false) {
+function redrawBg(updateText = false) {
     // asset calculations
     const logoScale = document.querySelector('#logo-size-option').value;
     const logoOffset = document.querySelector('#logo-offset').value;
