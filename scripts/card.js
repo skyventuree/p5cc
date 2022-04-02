@@ -14,7 +14,8 @@ var logo = new Image();
 logo.src = "assets/logo.png";
 logo.onload = redrawBg;
 
-function redrawBg(updateText = false) {
+// for the card canvas
+function redrawBg() {
     // asset calculations
     const logoScale = document.querySelector('#logo-size-option').value;
     const logoOffset = document.querySelector('#logo-offset').value;
@@ -39,3 +40,32 @@ function redrawBg(updateText = false) {
         card.fillText('skyventuree.github.io/p5cc', 30, canvas.height - 30);
     }
 }
+
+const text = document.querySelector('#content > textarea');
+const fontSizeInput = document.querySelector('#font-size');
+const fontFamilyInput = document.querySelector('#font-family');
+var canvasText = document.getElementById("canvas-text");
+
+// for the text canvas
+function redrawText() {
+    const value = (text.value || '').trim();
+    if (!value) {
+        return;
+    }
+    const fontSize = Math.min(Math.abs(+fontSizeInput.value || 120));
+    const fontFamily = fontFamilyInput.value || 'sans-serif';
+    const box = new BoxText(value, {
+        fontSize,
+        fontFamily
+    });
+    box.draw(canvasText);
+}
+
+// check textarea to see if anything changes every 1s to avoid lag
+const checkText = setInterval(() => {
+    if (text.value !== text.lastValue) {
+        text.lastValue = text.value;
+        redrawText();
+    }
+}
+, 1000);

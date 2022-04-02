@@ -6,7 +6,7 @@
     margin: 0;
 }
 
-.btn-groups > button {
+button {
     display: inline-flex;
     justify-content: space-around;
     align-items: center;
@@ -15,8 +15,14 @@
     padding-right: 20px;
 }
 
-.btn-groups > button:hover {
+button:hover {
     filter: invert(1);
+}
+
+button#refresh {
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 /* Font awesome */

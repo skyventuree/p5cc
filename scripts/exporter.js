@@ -5,14 +5,10 @@ function exportCard() {
 
     cardCtx.drawImage(text, 0, 0);
 
-    cardCtx.toBlob(
-        blob => {
-            const anchor = document.createElement('a');
-            anchor.download = 'calling_card.png';
-            anchor.href = URL.createObjectURL(blob);
-            anchor.click();
-            URL.revokeObjectURL(anchor.href);
-        },
-        'image/png', 0.9
-    );
+    const imageURL = canvas.toDataURL('image/png').replace('image/png', 'image/octet-stream');
+    const a = document.createElement('a');
+    a.href = imageURL;
+    a.download = `p5cc_${Math.random * 10}.png`;
+    a.target = 'blank';
+    a.click();
 }

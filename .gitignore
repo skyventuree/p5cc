@@ -1,2 +1,6 @@
+# macOS meta file
 .DS_Store
+
+# folders
 old
+node_modules

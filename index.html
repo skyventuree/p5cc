@@ -26,20 +26,18 @@
     </div>
     <hr>
 
-    <!-- base resolution: 1770 × 1300 -->
     <div id="card-preview">
-        <!-- a seperate text canvas is created so i can change background stuff without having to reset the text -->
-        <!-- they will be merged once the user export the image -->
         <canvas id="canvas-card" width="1770" height="1300"></canvas>
         <canvas id="canvas-text" width="1770" height="1300"></canvas>
     </div>
+    <button id="refresh" onclick="redrawBg();redrawText()"><i class="fa fa-refresh"></i>Refresh</button>
     
     <hr>
 
     <div id="editor">
         <div id="content">
             <label for="content">What do you want to write on the calling card?</label>
-            <textarea name="content" cols="30" rows="10" onchange="redrawBg()"></textarea>
+            <textarea name="content" cols="30" rows="10" autocomplete="off"></textarea>
         </div>
 
         <div id="options">
@@ -72,7 +70,7 @@
                 <label for="font-family">Set family</label>
                 <input type="text" name="font-family" id="font-family" value="sans-serif" placeholder="sans-serif" style="font-family:sans-serif">
                 <label for="font-size">with size of</label>
-                <input type="number" name="font-size" id="font-size" min="10" max="100" value="20" onchange="redrawBg()">
+                <input type="number" name="font-size" id="font-size" min="10" max="200" value="120" onchange="redrawBg()">
                 px.
             </div>
             <hr>
@@ -108,7 +106,6 @@
 
     <div id="actions" class="btn-groups">
         <button onclick="exportCard()"><i class="fa fa-arrow-circle-o-down"></i>Export this card</button>
-        <button onclick="redrawBg();redrawText()"><i class="fa fa-refresh"></i>Refresh</button>
         <button onclick="clearCard(this)"><i class="fa fa-times-circle-o"></i>Clear</button>
     </div>
 
@@ -120,7 +117,7 @@
         <ul>
             <li><a href="https://www.deviantart.com/elmind/art/Persona-5-Calling-Card-Base-676530039">Persona 5 Calling Card Base</a> by <a href="https://www.deviantart.com/elmind">Elmind</a>.</li>
             <li><a href="https://lzxhahaha.github.io/persona5/">Persona 5 Style Text Generator</a> by <a href="https://github.com/LzxHahaha">LzxHahaha</a>.<br>
-            Ported and rewritten by <a href="https://skyventuree.github.io">shigukk</a>.</li>
+            Ported and modified by <a href="https://skyventuree.github.io">shigukk</a>.</li>
             <li>Persona 5 Logo and Assets by ALTUS.</li>
         </ul>
         <p>All assets are all under fair use.</p>
@@ -134,9 +131,9 @@
     <script src="scripts/style.js"></script>
     <script src="scripts/exporter.js"></script>
 
-    <!-- Text related scripts -->
+    <!-- Text generator from Persona 5 Style Text Gen @lzxhahaha -->
     <script src="scripts/textgen/utils.js"></script>
-    <script src="scripts/textgen/text.js"></script>
     <script src="scripts/textgen/char.js"></script>
+    <script src="scripts/textgen/text.js"></script>
 </body>
 </html>
