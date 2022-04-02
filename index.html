@@ -26,9 +26,12 @@
     </div>
     <hr>
 
-    <!-- 1770 × 1300 -->
+    <!-- base resolution: 1770 × 1300 -->
     <div id="card-preview">
-        <canvas id="card" width="1770" height="1300"></canvas>
+        <!-- a seperate text canvas is created so i can change background stuff without having to reset the text -->
+        <!-- they will be merged once the user export the image -->
+        <canvas id="canvas-card" width="1770" height="1300"></canvas>
+        <canvas id="canvas-text" width="1770" height="1300"></canvas>
     </div>
     
     <hr>
@@ -48,9 +51,19 @@
                     <input type="checkbox" name="text-options" onclick="middleText(this)" onchange="redraw()" checked>
                     <span class="checkmark"></span>Put text in the middle
                 </label>
+
                 <label for="text-top">or shift text from top by</label>
                 <input type="number" name="text-top" id="text-top" min="0" max="2000" value="1000" onchange="redraw()" disabled>
                 px
+                <br>
+
+                <label for="text-align">then align text <span>in</span> the </label>
+                <select name="text-align" id="text-align" onchange="alignWordPointer(this);redraw()" style="transform:rotate(-3.5deg)">
+                    <option value="left">left</option>
+                    <option value="center" selected>center</option>
+                    <option value="right">right</option>
+                </select>
+                .
             </div>
             <hr>
     
@@ -60,7 +73,7 @@
                 <input type="text" name="font-family" id="font-family" value="sans-serif" style="font-family:sans-serif">
                 <label for="font-size">with size of</label>
                 <input type="number" name="font-size" id="font-size" min="10" max="100" value="20" onchange="redraw()">
-                px
+                px.
             </div>
             <hr>
     
@@ -77,7 +90,7 @@
                 <input type="number" name="logo-size" id="logo-size-option" min="0" max="10" value="1" step="0.05" onchange="redraw()">
                 <label for="offset">with an offset of </label>
                 <input type="number" name="offset" id="logo-offset" min="0" max="1000" value="20" onchange="redraw()">
-                px
+                px.
             </div>
     
             <hr>
@@ -113,8 +126,15 @@
 
     <p id="version">v.3.0</p>
 
+    <!-- Main utility and core function-->
     <script src="scripts/editor.js"></script>
     <script src="scripts/card.js"></script>
     <script src="scripts/style.js"></script>
+    <script src="scripts/exporter.js"></script>
+
+    <!-- Text related scripts -->
+    <script src="scripts/boxUtils.js"></script>
+    <script src="scripts/boxText.js"></script>
+    <script src="scripts/boxChar.js"></script>
 </body>
 </html>

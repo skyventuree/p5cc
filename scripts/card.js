@@ -1,5 +1,5 @@
 // P5CC core functions
-var canvas = document.getElementById("card");
+var canvas = document.getElementById("canvas-card");
 var card = canvas.getContext("2d");
 
 card.font = '34px KoreanKRSM';
@@ -14,7 +14,7 @@ var logo = new Image();
 logo.src = "assets/logo.png";
 logo.onload = redraw;
 
-function redraw() {
+function redraw(updateText = false) {
     // asset calculations
     const logoScale = document.querySelector('#logo-size-option').value;
     const logoOffset = document.querySelector('#logo-offset').value;
@@ -38,24 +38,4 @@ function redraw() {
         card.textAlign = 'left';
         card.fillText('skyventuree.github.io/p5cc', 30, canvas.height - 30);
     }
-}
-
-function setText(text, position, fontFamily, fontSize) {
-    document.querySelector('#content > textarea').value = text;
-
-
-    redraw();
-}
-
-function exportCard() {
-    canvas.toBlob(
-        blob => {
-            const anchor = document.createElement('a');
-            anchor.download = 'calling_card.png';
-            anchor.href = URL.createObjectURL(blob);
-            anchor.click();
-            URL.revokeObjectURL(anchor.href);
-        },
-        'image/png', 0.9
-    );
 }

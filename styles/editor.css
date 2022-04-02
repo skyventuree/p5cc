@@ -1,11 +1,20 @@
 /* General */
-input, textarea, button{
+input, textarea, button, select {
     background-color: white;
     border: 2px solid black;
+    border-radius: 0;
     box-shadow: 4px 4px black;
     color: black;
     padding: 5px;
     outline: none;
+}
+
+select {
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-appearance: none;
+    -moz-appearance: none;
 }
 
 textarea {

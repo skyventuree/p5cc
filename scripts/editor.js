@@ -20,6 +20,16 @@ function middleText(element) {
     redraw()
 }
 
+function alignWordPointer(element) {
+    console.log(element.value);
+    let pointerWord = document.querySelector('#text-options > label:nth-child(5) > span');
+    if (element.value === "center") {
+        pointerWord.innerHTML = 'in';
+        return
+    }
+    pointerWord.innerHTML = 'on';
+}
+
 // clearing the input field
 let defaults = '<i class="fa fa-times-circle-o"></i>Clear';
 let confirm = '<i class="fa fa-times-circle-o"></i>Are you sure?';
