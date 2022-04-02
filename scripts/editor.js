@@ -1,18 +1,22 @@
-var showLogo = true, showWtm = true;
+// editor related switches
+var showLogo = true, showWtm = true, isMiddle = true;
 
 function toggleLogo(element) {
-    let isEnabled = !element.checked;
-    showLogo = isEnabled;
+    showLogo = element.checked;
     document.querySelectorAll('#logo-size>input').forEach(function(e) {
-        e.disabled = isEnabled
-    });
+        e.disabled = !showLogo;
+    })
     redraw()
 }
 
-function showWtmark(element) {
-    let isEnabled = !element.checked;
-    showWtm = isEnabled;
-    document.querySelector('#logo-size>input').disabled = isEnabled;
+function toggleWtmark(element) {
+    showWtm = element.checked;
+    redraw()
+}
+
+function middleText(element) {
+    isMiddle = element.checked;
+    document.querySelector('#text-top').disabled = isMiddle;
     redraw()
 }
 

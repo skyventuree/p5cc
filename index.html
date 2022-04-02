@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="styles/editor.css">
     <link rel="stylesheet" href="styles/card.css">
@@ -12,6 +14,18 @@
     <title>Persona 5 Calling Card Maker</title>
 </head>
 <body>
+    <div id="header">
+        <div id="intro-icon">
+            <img src="assets/icon.png">
+        </div>
+        <div id="intro-text">
+            <h2>Persona 5 Calling Card Maker</h2>
+            <p>For the sake of effortlessly making a calling card.<br>
+                Sending your card to the darkest desire.</p>
+        </div>
+    </div>
+    <hr>
+
     <!-- 1770 × 1300 -->
     <div id="card-preview">
         <canvas id="card" width="1770" height="1300"></canvas>
@@ -27,12 +41,28 @@
 
         <div id="options">
             <hr class="mobile">
-            <h2>Options</h2>
-    
-            <div id="font-size">
-                <label for="font-size">Font size</label>
-                <input type="number" name="font-size" min="10" max="200" value="120" onchange="redraw()"> 
+
+            <h2><i class="fa fa-arrows" style="transform:rotate(-10deg)"></i>Position</h2>
+            <div id="text-options">
+                <label class="cb-container">
+                    <input type="checkbox" name="text-options" onclick="middleText(this)" onchange="redraw()" checked>
+                    <span class="checkmark"></span>Put text in the middle
+                </label>
+                <label for="text-top">or shift text from top by</label>
+                <input type="number" name="text-top" id="text-top" min="0" max="2000" value="1000" onchange="redraw()" disabled>
+                px
             </div>
+            <hr>
+    
+            <h2><i class="fa fa-font" style="transform:rotate(10deg)"></i>Fonts</h2>
+            <div id="font-options">
+                <label for="font-family">Set family</label>
+                <input type="text" name="font-family" id="font-family" value="sans-serif" style="font-family:sans-serif">
+                <label for="font-size">with size of</label>
+                <input type="number" name="font-size" id="font-size" min="10" max="100" value="20" onchange="redraw()">
+                px
+            </div>
+            <hr>
     
             <div id="show-logo">
                 <label class="cb-container">
@@ -43,10 +73,11 @@
             </div>
     
             <div id="logo-size">
-                <label for="logo-size">Logo size</label>
-                <input type="number" name="logo-size" id="logo-size-option" min="10" max="200" value="120" onchange="redraw()">
+                <label for="logo-size">Scale logo by</label>
+                <input type="number" name="logo-size" id="logo-size-option" min="0" max="10" value="1" step="0.05" onchange="redraw()">
                 <label for="offset">with an offset of </label>
-                <input type="number" name="offset" id="logo-offset" min="0" max="100" value="20" onchange="redraw()">
+                <input type="number" name="offset" id="logo-offset" min="0" max="1000" value="20" onchange="redraw()">
+                px
             </div>
     
             <hr>
@@ -82,8 +113,8 @@
 
     <p id="version">v.3.0</p>
 
-    <script src="scripts/p5lib.js"></script>
     <script src="scripts/editor.js"></script>
     <script src="scripts/card.js"></script>
+    <script src="scripts/style.js"></script>
 </body>
 </html>

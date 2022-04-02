@@ -31,9 +31,13 @@ input:disabled  {
     grid-template-areas: "content options";
     grid-gap: 30px;
     color: black;
-    padding: 20px;
+    padding: 0 20px;
     height: 100%;
     border-radius: 10px;
+}
+
+#editor > div > h2 {
+    text-align: center;
 }
 
 @media screen and (max-width:767px),
@@ -51,18 +55,6 @@ screen and (max-device-width:767px) {
 /* Rotation decorations */
 textarea {
     transform: rotate(-.42deg);
-}
-
-#actions > :nth-child(1) {
-    transform: rotate(2deg);
-}
-
-#actions > :nth-child(2) {
-    transform: rotate(-1deg);
-}
-
-#actions > :nth-child(3) {
-    transform: rotate(2.5deg);
 }
 
 .checkmark {

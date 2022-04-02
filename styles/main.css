@@ -56,6 +56,24 @@ a:hover {
     filter: invert(1);
 }
 
+#header {
+    display: grid;
+    grid-template-columns: 40% 1fr;
+    height: 100%;
+}
+
+#header > #intro-text {
+    text-align: right;
+    padding-right: 50px;
+}
+
+#header > #intro-icon > img {
+    position: absolute;
+    width: 20%;
+    height: 0 auto;
+    padding-left: 50px;
+}
+
 #credits {
     color: white;
     font-size: 18px;
@@ -75,12 +93,24 @@ a:hover {
 }
 
 .mobile {
-    visibility: hidden;
+    display: none;
 }
 
 @media screen and (max-width:767px),
 screen and (max-device-width:767px) {
     .mobile {
-        visibility: visible;
+        display: block;
+    }
+
+    #header {
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr; 
+    }
+
+    #header > #intro-icon > img {
+        width: 50%;
+        height: 0 auto;
+        padding-left: 0;
+        z-index: -1;
     }
 }
