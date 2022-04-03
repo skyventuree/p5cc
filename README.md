@@ -1,6 +1,7 @@
-# Persona 5 Calling Card Maker
+## Want quick access?
 
-![Persona 5 Calling Card Maker](assets/readme.png)
+[skyventuree.github.io/p5cc](https://skyventuree.github.io/p5cc/index.html)
+# Persona 5 Calling Card Maker
 
 _This is the repository for the version 3 and they will get updated there._
 
