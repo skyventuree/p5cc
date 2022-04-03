@@ -6,20 +6,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/x-icon" href="favicon.ico">
 
+    <!-- Primary Meta Tags -->
+    <title>Persona 5 Calling Card Maker (BETA)</title>
+    <meta name="title" content="Persona 5 Calling Card Maker">
+    <meta name="description" content="For the sake of effortlessly making a calling card. Sending your card to the darkest desire.">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://skyventuree.github.io/p5cc/index.html">
+    <meta property="og:title" content="Persona 5 Calling Card Maker">
+    <meta property="og:description" content="For the sake of effortlessly making a calling card. Sending your card to the darkest desire.">
+    <meta property="og:image" content="https://github.com/skyventuree/skyventuree/raw/main/meta.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://skyventuree.github.io/p5cc/index.html">
+    <meta property="twitter:title" content="Persona 5 Calling Card Maker">
+    <meta property="twitter:description" content="For the sake of effortlessly making a calling card. Sending your card to the darkest desire.">
+    <meta property="twitter:image" content="https://github.com/skyventuree/skyventuree/raw/main/meta.png">
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="styles/editor.css">
     <link rel="stylesheet" href="styles/card.css">
     <link rel="stylesheet" href="styles/main.css">
     <link rel="stylesheet" href="styles/button.css">
-    <title>Persona 5 Calling Card Maker</title>
 </head>
 <body>
+    <base target="_blank" rel="noopener noreferrer">
     <div id="header">
         <div id="intro-icon">
             <img src="assets/icon.png">
         </div>
         <div id="intro-text">
-            <h2>Persona 5 Calling Card Maker</h2>
+            <h2>Persona 5 Calling Card Maker<span id="beta">BETA!</span></h2>
             <p>For the sake of effortlessly making a calling card.<br>
                 Sending your card to the darkest desire.</p>
         </div>
@@ -39,6 +58,9 @@
         <div id="content">
             <label for="content">What do you want to write on the calling card?</label>
             <textarea name="content" cols="30" rows="10" autocomplete="off" placeholder="TAKE YOUR HEART"></textarea>
+            <span style="display:inline-block;text-align:center">
+                Known bug: Safari will lags out if there are too much content.
+            </span>
         </div>
 
         <div id="options">
@@ -47,12 +69,12 @@
             <h2><i class="fa fa-arrows" style="transform:rotate(-10deg)"></i>Position</h2>
             <div id="text-options">
                 <label class="cb-container">
-                    <input type="checkbox" name="text-options" onclick="middleText(this)" onchange="redrawBg();redrawText()" checked>
+                    <input type="checkbox" name="text-options" onclick="middleText(this)" onchange="redrawText()" checked>
                     <span class="checkmark"></span>Put text in the middle
                 </label>
 
                 <label for="text-top">or shift text from top by</label>
-                <input type="number" name="text-top" id="text-top" min="0" max="2000" value="0" onchange="redrawBg();redrawText()" disabled>
+                <input type="number" name="text-top" id="text-top" min="0" max="2000" value="0" step="5" onchange="redrawText()" disabled>
                 px
                 <br>
 
@@ -71,7 +93,7 @@
                 <label for="font-family">Set family</label>
                 <input type="text" name="font-family" id="font-family" value="sans-serif" placeholder="sans-serif" style="font-family:sans-serif">
                 <label for="font-size">with size of</label>
-                <input type="number" name="font-size" id="font-size" min="80" max="240" value="120" onchange="redrawBg()">
+                <input type="number" name="font-size" id="font-size" min="80" max="240" value="120" step="2" onchange="redrawBg()">
                 px.
                 <p>Click <i class="fa fa-refresh"></i>Refresh to see changes.</p>
             </div>
@@ -123,6 +145,16 @@
             <li>Persona 5 Logo and Assets by ALTUS.</li>
         </ul>
         <p>All assets are all under fair use.</p>
+    </div>
+
+    <div id="support">
+        <a href="https://ko-fi.com/shigukk" style="text-decoration:none">
+            <button><i class="fa fa-coffee"></i>Buy me a coffee!</button>
+        </a>
+        - or -
+        <a href="https://github.com/skyventuree/p5cc" style="text-decoration:none">
+            <button><i class="fa fa-github"></i>Check out source code!</button>
+        </a>
     </div>
 
     <p id="version">v.3.0</p>

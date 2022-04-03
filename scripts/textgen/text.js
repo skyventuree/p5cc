@@ -42,7 +42,8 @@ class BoxText {
         for (const [index, char] of chars.entries()) {
             if (/^\s$/.test(char)) {
                 this.chars.push(new BoxChar('', CHAR_MODE.SPACE));
-            } else {
+            } 
+            else {
                 this.chars.push(new BoxChar(char, modes[index], this.fontSize, this.fontFamily));
             }
         }
@@ -85,25 +86,15 @@ class BoxText {
             widthOffset = canvas.width - canvasWidth;
         }
 
-        // offset for height
-        const isMiddle = document.querySelector('#text-options > label.cb-container > input[type="checkbox"]').checked;
-        const topOffset = document.querySelector('#text-top').value;
-        let heightOffset = 0;
-        if (isMiddle) {
-            heightOffset = (canvas.height - canvasHeight) / 2;
-        } else {
-            heightOffset = topOffset;
-        }
-
-        // draw text
         let drawOffset = pendding + widthOffset;
 
-        canvasHeight = canvasHeight + pendding * 2 + heightOffset;
+        canvasHeight = canvasHeight + pendding * 2;
 
-        ctx.fillStyle = COLORS.BLACK;
+        ctx.fillStyle = COLORS.WHITE;
         ctx.textBaseline = 'top';
         ctx.textAlign = 'left';
 
+        /* CHARACTERS DRAWINGS */
         for (const boxChar of this.chars) {
             if (boxChar.mode == CHAR_MODE.SPACE) {
                 drawOffset += 2 * gutter;
@@ -139,7 +130,7 @@ class BoxText {
                 ctx.fillRect(drawOffset, (canvasHeight - borderHeight) / 2, borderWidth, borderHeight);
 
                 // red background 
-                rotateCanvas(ctx, 3, rotateX, rotateY);
+                rotateCanvas(ctx, angle + 3, rotateX, rotateY);
                 const bgScale = 0.85;
                 const bgWidth = borderWidth * bgScale,
                     bgHeight = borderHeight * bgScale;
@@ -149,7 +140,7 @@ class BoxText {
                 ctx.fillRect(bgLeft, bgTop, bgWidth, bgHeight);
 
                 // first character
-                rotateCanvas(ctx, 2, rotateX, rotateY);
+                rotateCanvas(ctx, angle + 2, rotateX, rotateY);
                 const textLeft = drawOffset + (borderWidth - width) / 2 - left,
                     textTop = (canvasHeight - height) / 2 - top;
                 ctx.fillStyle = color;
@@ -157,7 +148,9 @@ class BoxText {
                 ctx.fillText(char, textLeft, textTop);
 
                 drawOffset += boxChar.outterSize.width + gutter;
-            } else {
+            } 
+            
+            else {
                 // normal characters
                 const {
                     width: bgWidth,
@@ -180,8 +173,9 @@ class BoxText {
 
                 drawOffset += boxChar.outterSize.width + gutter;
             }
-
+      
             ctx.restore();
+
         }
 
         const {
@@ -194,5 +188,7 @@ class BoxText {
         ctx.drawImage(borderCanvas, 0, 0);
 
         ctx.restore();
+
+        return canvasHeight;
     }
 }

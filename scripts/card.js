@@ -41,31 +41,59 @@ function redrawBg() {
     }
 }
 
-const text = document.querySelector('#content > textarea');
+// for the text canvas
+const textInput = document.querySelector('#content > textarea');
 const fontSizeInput = document.querySelector('#font-size');
 const fontFamilyInput = document.querySelector('#font-family');
-var canvasText = document.getElementById("canvas-text");
 
-// for the text canvas
+const lineCanvas = document.createElement('canvas');
+
+const canvasText = document.getElementById("canvas-text");
+const textCtx = canvasText.getContext('2d');
+let box;
+
 function redrawText() {
-    const value = (text.value || 'TAKE YOUR HEART').trim();
-    if (!value) {
-        return;
-    }
     const fontSize = Math.min(Math.abs(+fontSizeInput.value || 120));
     const fontFamily = fontFamilyInput.value || 'sans-serif';
-    const box = new BoxText(value, {
-        fontSize,
-        fontFamily
+
+    // another canvas so making multiline text is easier
+    lineCanvas.width = canvasText.width;
+    lineCanvas.height = fontSize * 2.2;
+
+    textCtx.clearRect(0, 0, canvasText.width, canvasText.height);
+    
+    const value = (textInput.value || 'TAKE YOUR HEART').trim();
+    const splitValue = value.split('\n');
+   
+    // they are all offset, just a different name and purpose
+    let lineHeight = 0, middleOffset = 0, heightOffset = 0;
+    let topOffset = Number(document.querySelector('#text-top').value);
+
+    splitValue.forEach(line => {
+        box = new BoxText(line, {
+            fontSize,
+            fontFamily
+        });
+
+        if (isMiddle) {
+            topOffset = 0;
+            middleOffset = ((canvasText.height - fontSize * splitValue.length) / 2) - 50;
+        }
+
+        heightOffset += Number(box.draw(lineCanvas) - 40);
+
+        textCtx.drawImage(lineCanvas, 0, lineHeight + middleOffset + topOffset);
+
+        lineHeight = Math.floor(heightOffset) || lineHeight;
+        console.log(value, lineHeight, middleOffset, heightOffset);
     });
-    box.draw(canvasText);
+    
 }
 
 // check textarea to see if anything changes every 1s to avoid lag
 const checkText = setInterval(() => {
-    if (text.value !== text.lastValue) {
-        text.lastValue = text.value;
+    if (textInput.value !== textInput.lastValue) {
+        textInput.lastValue = textInput.value;
         redrawText();
     }
-}
-, 1000);
+}, 1000);

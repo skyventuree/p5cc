@@ -74,6 +74,11 @@ a:hover {
     padding-left: 50px;
 }
 
+#beta {
+    position: absolute;
+    font-size: small;
+}
+
 #credits {
     color: white;
     font-size: 18px;
@@ -84,6 +89,15 @@ a:hover {
 
 #credits > * {
     margin: 2px;
+}
+
+#support {
+    position: absolute;
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr;
+    text-align: center;
+    right: 5%;
+    transform: translateY(-120%);
 }
 
 #version {
@@ -112,5 +126,10 @@ screen and (max-device-width:767px) {
         height: 0 auto;
         padding-left: 0;
         z-index: -1;
+    }
+
+    #support {
+        position: relative;
+        transform: translate(5%, 5%);
     }
 }
