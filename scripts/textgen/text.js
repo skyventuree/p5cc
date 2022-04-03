@@ -24,7 +24,7 @@ class BoxText {
             console.error('Must set text.');
         }
 
-        const chars = text.toUpperCase().split('');
+        const chars = text.split('');
         const modes = new Array(chars.length).fill(CHAR_MODE.WHITE);
         modes[0] = CHAR_MODE.FIRST;
 
@@ -50,8 +50,10 @@ class BoxText {
 
     draw(canvas) {
         const ctx = canvas.getContext('2d');
+
         if (!ctx) {
             console.error('Failed to load canvas');
+            return;
         }
 
         ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -61,9 +63,11 @@ class BoxText {
 
         let canvasWidth = pendding * 2,
             canvasHeight = 0;
-        for (const boxChar of this.chars) {
-            if (boxChar instanceof BoxChar) {
-                const size = boxChar.outterSize;
+
+            
+            for (const boxChar of this.chars) {
+                if (boxChar instanceof BoxChar) {
+                    const size = boxChar.outterSize;
                 canvasWidth += (size.width + gutter);
                 canvasHeight = Math.max(canvasHeight, size.height);
             } else {
@@ -71,11 +75,34 @@ class BoxText {
             }
         }
         
-        let drawOffset = pendding;
-        canvasHeight = canvasHeight + pendding * 2;
+        // offset for text alignment
+        const align = document.querySelector('#text-align');
+        let widthOffset = 0;
+        if (align.value === 'center') {
+            widthOffset = (canvas.width - canvasWidth) / 2;
+        } 
+        if (align.value === 'right') {
+            widthOffset = canvas.width - canvasWidth;
+        }
+
+        // offset for height
+        const isMiddle = document.querySelector('#text-options > label.cb-container > input[type="checkbox"]').checked;
+        const topOffset = document.querySelector('#text-top').value;
+        let heightOffset = 0;
+        if (isMiddle) {
+            heightOffset = (canvas.height - canvasHeight) / 2;
+        } else {
+            heightOffset = topOffset;
+        }
+
+        // draw text
+        let drawOffset = pendding + widthOffset;
+
+        canvasHeight = canvasHeight + pendding * 2 + heightOffset;
 
         ctx.fillStyle = COLORS.BLACK;
         ctx.textBaseline = 'top';
+        ctx.textAlign = 'left';
 
         for (const boxChar of this.chars) {
             if (boxChar.mode == CHAR_MODE.SPACE) {
@@ -84,6 +111,7 @@ class BoxText {
             }
 
             ctx.save();
+
             let {
                 char,
                 top,
@@ -95,17 +123,22 @@ class BoxText {
                 color
             } = boxChar;
 
+            // if this is the first character
             if (mode == CHAR_MODE.FIRST) {
                 const {
                     width: borderWidth,
                     height: borderHeight
                 } = boxChar.outterSize;
+
+                // black border background
                 const rotateX = drawOffset + borderWidth / 2,
                     rotateY = pendding + borderHeight / 2;
+
                 rotateCanvas(ctx, angle - 5, rotateX, rotateY);
                 ctx.fillStyle = COLORS.BLACK;
                 ctx.fillRect(drawOffset, (canvasHeight - borderHeight) / 2, borderWidth, borderHeight);
 
+                // red background 
                 rotateCanvas(ctx, 3, rotateX, rotateY);
                 const bgScale = 0.85;
                 const bgWidth = borderWidth * bgScale,
@@ -115,6 +148,7 @@ class BoxText {
                 ctx.fillStyle = COLORS.RED;
                 ctx.fillRect(bgLeft, bgTop, bgWidth, bgHeight);
 
+                // first character
                 rotateCanvas(ctx, 2, rotateX, rotateY);
                 const textLeft = drawOffset + (borderWidth - width) / 2 - left,
                     textTop = (canvasHeight - height) / 2 - top;
@@ -124,6 +158,7 @@ class BoxText {
 
                 drawOffset += boxChar.outterSize.width + gutter;
             } else {
+                // normal characters
                 const {
                     width: bgWidth,
                     height: bgHeight
@@ -131,6 +166,7 @@ class BoxText {
 
                 const rotateX = drawOffset + bgWidth / 2,
                     rotateY = pendding + bgHeight / 2;
+
                 rotateCanvas(ctx, angle + 1, rotateX, rotateY);
                 ctx.fillStyle = COLORS.BLACK;
                 ctx.fillRect(drawOffset, (canvasHeight - bgHeight) / 2, bgWidth, bgHeight);

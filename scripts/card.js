@@ -48,7 +48,7 @@ var canvasText = document.getElementById("canvas-text");
 
 // for the text canvas
 function redrawText() {
-    const value = (text.value || '').trim();
+    const value = (text.value || 'TAKE YOUR HEART').trim();
     if (!value) {
         return;
     }

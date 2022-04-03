@@ -35,9 +35,10 @@
     <hr>
 
     <div id="editor">
+
         <div id="content">
             <label for="content">What do you want to write on the calling card?</label>
-            <textarea name="content" cols="30" rows="10" autocomplete="off"></textarea>
+            <textarea name="content" cols="30" rows="10" autocomplete="off" placeholder="TAKE YOUR HEART"></textarea>
         </div>
 
         <div id="options">
@@ -46,17 +47,17 @@
             <h2><i class="fa fa-arrows" style="transform:rotate(-10deg)"></i>Position</h2>
             <div id="text-options">
                 <label class="cb-container">
-                    <input type="checkbox" name="text-options" onclick="middleText(this)" onchange="redrawBg()" checked>
+                    <input type="checkbox" name="text-options" onclick="middleText(this)" onchange="redrawBg();redrawText()" checked>
                     <span class="checkmark"></span>Put text in the middle
                 </label>
 
                 <label for="text-top">or shift text from top by</label>
-                <input type="number" name="text-top" id="text-top" min="0" max="2000" value="1000" onchange="redrawBg()" disabled>
+                <input type="number" name="text-top" id="text-top" min="0" max="2000" value="0" onchange="redrawBg();redrawText()" disabled>
                 px
                 <br>
 
                 <label for="text-align">then align text <span>in</span> the </label>
-                <select name="text-align" id="text-align" onchange="alignWordPointer(this);redrawBg()" style="transform:rotate(-3.5deg)">
+                <select name="text-align" id="text-align" onchange="alignWordPointer(this);redrawBg();redrawText()" style="transform:rotate(-3.5deg)">
                     <option value="left">left</option>
                     <option value="center" selected>center</option>
                     <option value="right">right</option>
@@ -70,8 +71,9 @@
                 <label for="font-family">Set family</label>
                 <input type="text" name="font-family" id="font-family" value="sans-serif" placeholder="sans-serif" style="font-family:sans-serif">
                 <label for="font-size">with size of</label>
-                <input type="number" name="font-size" id="font-size" min="10" max="200" value="120" onchange="redrawBg()">
+                <input type="number" name="font-size" id="font-size" min="80" max="240" value="120" onchange="redrawBg()">
                 px.
+                <p>Click <i class="fa fa-refresh"></i>Refresh to see changes.</p>
             </div>
             <hr>
     
@@ -105,8 +107,8 @@
     </div>
 
     <div id="actions" class="btn-groups">
-        <button onclick="exportCard()"><i class="fa fa-arrow-circle-o-down"></i>Export this card</button>
         <button onclick="clearCard(this)"><i class="fa fa-times-circle-o"></i>Clear</button>
+        <button onclick="exportCard()"><i class="fa fa-arrow-circle-o-down"></i>Export this card</button>
     </div>
 
     <hr>

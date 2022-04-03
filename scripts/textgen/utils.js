@@ -18,6 +18,7 @@ function letterCanvas(width, height) {
     const context = canvas.getContext('2d');
     if (!context) {
         console.error("Failed to generate text: failed to create canvas for the letter.");
+        return;
     }
     return {
         canvas,

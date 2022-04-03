@@ -22,6 +22,7 @@ function middleText(element) {
 
 function alignWordPointer(element) {
     let pointerWord = document.querySelector('#text-options > label:nth-child(5) > span');
+    document.querySelector('#content > textarea').style.textAlign = element.value;
     redrawText()
     if (element.value === "center") {
         pointerWord.innerHTML = 'in';
