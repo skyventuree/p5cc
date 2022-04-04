@@ -68,24 +68,28 @@ function redrawText() {
     // they are all offset, just a different name and purpose
     let lineHeight = 0, middleOffset = 0, heightOffset = 0;
     let topOffset = Number(document.querySelector('#text-top').value);
+    let timer = 0;
 
     splitValue.forEach(line => {
-        box = new BoxText(line, {
-            fontSize,
-            fontFamily
-        });
-
-        if (isMiddle) {
-            topOffset = 0;
-            middleOffset = ((canvasText.height - fontSize * splitValue.length) / 2) - 50;
-        }
-
-        heightOffset += Number(box.draw(lineCanvas) - 40);
-
-        textCtx.drawImage(lineCanvas, 0, lineHeight + middleOffset + topOffset);
-
-        lineHeight = Math.floor(heightOffset) || lineHeight;
-        console.log(value, lineHeight, middleOffset, heightOffset);
+        setTimeout(() => {
+            box = new BoxText(line, {
+                fontSize,
+                fontFamily
+            });
+    
+            if (isMiddle) {
+                topOffset = 0;
+                middleOffset = ((canvasText.height - fontSize * splitValue.length) / 2.5) - (fontSize / 5 * (splitValue.length));
+            }
+    
+            heightOffset += Number(box.draw(lineCanvas) - 40);
+    
+            textCtx.drawImage(lineCanvas, 0, lineHeight + middleOffset + topOffset);
+    
+            lineHeight = Math.floor(heightOffset) || lineHeight;
+            console.log(value, lineHeight, middleOffset, heightOffset);
+        }, timer);
+        timer += 50;
     });
     
 }
