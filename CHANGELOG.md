@@ -24,3 +24,7 @@
 
 - Fix lag issue on certain browser.
 - Styling changes.
+
+### 3.0.7
+
+- Text creation delay can be customized.

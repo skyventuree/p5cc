@@ -53,6 +53,7 @@ const textCtx = canvasText.getContext('2d');
 let box;
 
 function redrawText() {
+    const delay = Number(document.querySelector('#delay-rate > input[type="number"]').value);
     const fontSize = Math.min(Math.abs(+fontSizeInput.value || 120));
     const fontFamily = fontFamilyInput.value || 'sans-serif';
 
@@ -89,7 +90,7 @@ function redrawText() {
             lineHeight = Math.floor(heightOffset) || lineHeight;
             console.log(value, lineHeight, middleOffset, heightOffset);
         }, timer);
-        timer += 50;
+        timer += delay;
     });
     
 }

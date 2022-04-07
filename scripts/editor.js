@@ -53,3 +53,19 @@ function clearCard(element) {
         confirming = false;
     }, 1500);
 }
+
+function saveDelay() {
+    let delay = Number(document.querySelector('#delay-rate > input[type="number"]').value);
+    let date = new Date();
+    date.setTime(date.getTime() + (365 * 24 * 60 * 60 * 1000));
+    let expires = "expires=" + date.toUTCString();
+    document.cookie = `delay=${delay};${expires};path=/`;
+}
+
+window.onload = function() {
+    console.info("Getting cookie value...")
+    let delay = document.cookie.replace(/(?:(?:^|.*;\s*)delay\s*\=\s*([^;]*).*$)|^.*$/, "$1");
+    if (delay) {
+        document.querySelector('#delay-rate > input[type="number"]').value = delay;
+    }
+}

@@ -49,6 +49,7 @@
         <canvas id="canvas-card" width="1770" height="1300"></canvas>
         <canvas id="canvas-text" width="1770" height="1300"></canvas>
     </div>
+    
     <button id="refresh" onclick="redrawBg();redrawText()"><i class="fa fa-refresh"></i>Refresh</button>
     
     <hr>
@@ -59,7 +60,7 @@
             <label for="content">What do you want to write on the calling card?</label>
             <textarea name="content" cols="30" rows="10" autocomplete="off" placeholder="TAKE YOUR HEART"></textarea>
             <span style="display:inline-block;text-align:center">
-                Lag issue should be fixed. If not, please file a <a href="https://github.com/skyventuree/p5cc/issues">bug report</a>.
+                
             </span>
         </div>
 
@@ -114,6 +115,14 @@
                 <input type="number" name="offset" id="logo-offset" min="0" max="1000" value="20" onchange="redrawBg()">
                 px.
             </div>
+
+            <hr>
+
+            <div id="delay-rate">
+                <label for="delay-rate">Delay each text being created by</label>
+                <input type="number" name="delay-rate" min="0" max="1000" value="50" onchange="saveDelay()"> ms
+                <p><i class="fa fa-info-circle"></i> Increase this value if you feels the page is laggy.</p>
+            </div>
     
             <hr>
             <div id="wtm-option">
@@ -158,7 +167,7 @@
         </a>
     </div>
 
-    <p id="version">v.3.0.5</p>
+    <p id="version">v.3.0.7 (<a href="https://github.com/skyventuree/p5cc/blob/main/CHANGELOG.md">See changelog</a>)</p>
 
     <!-- Main utility and core function-->
     <script src="scripts/editor.js"></script>
