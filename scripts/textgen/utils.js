@@ -12,8 +12,8 @@ function rotateCanvas(context, angle, x, y) {
 // canvas for individual character
 function letterCanvas(width, height) {
     const canvas = document.createElement('canvas');
-    canvas.width = "1770";
-    canvas.height = "1300";
+    canvas.width = width;
+    canvas.height = height;
 
     const context = canvas.getContext('2d');
     if (!context) {

@@ -1,14 +1,7 @@
 /* Buttons  */
-.btn-groups {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin: 0;
-}
-
 button {
     display: inline-flex;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
     font-size: 16px;
     padding-left: 20px;
@@ -25,16 +18,33 @@ button#refresh {
     transform: translateX(-50%);
 }
 
+.action-btn {
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    width: fit-content;
+    min-width: 50%;
+}
+
 /* Font awesome */
 .fa {
     font-size: 24px;
-    margin-right: 5px;
+    margin-left: 10px;
+    margin-right: 10px;
 }
 
-#actions {
+/* Tab buttons */
+#options > div.tab-btn > button {
+    width: 20%;
+    transform: translateX(50%);
+}
+
+#options > div.tab-btn > button.active {
+    filter: invert(1);
+}
+
+#options > div.tab-btn > button > * {
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
-    margin: 0;
-    padding: 10px;
 }

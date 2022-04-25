@@ -38,7 +38,7 @@
             <img src="assets/icon.png">
         </div>
         <div id="intro-text">
-            <h2>Persona 5 Calling Card Maker<span id="beta">BETA!</span></h2>
+            <h2>Persona 5 Calling Card Maker</h2>
             <p>For the sake of effortlessly making a calling card.<br>
                 Sending your card to the darkest desire.</p>
         </div>
@@ -59,87 +59,118 @@
         <div id="content">
             <label for="content">What do you want to write on the calling card?</label>
             <textarea name="content" cols="30" rows="10" autocomplete="off" placeholder="TAKE YOUR HEART"></textarea>
-            <span style="display:inline-block;text-align:center">
-                
-            </span>
+            <button class="action-btn" onclick="clearCard(this)"><i class="fa fa-times-circle-o"></i>Clear</button>
         </div>
 
         <div id="options">
             <hr class="mobile">
 
-            <h2><i class="fa fa-arrows" style="transform:rotate(-10deg)"></i>Position</h2>
-            <div id="text-options">
-                <label class="cb-container">
-                    <input type="checkbox" name="text-options" onclick="middleText(this)" onchange="redrawText()" checked>
-                    <span class="checkmark"></span>Put text in the middle
-                </label>
-
-                <label for="text-top">or shift text from top by</label>
-                <input type="number" name="text-top" id="text-top" min="0" max="2000" value="0" step="5" onchange="redrawText()" disabled>
-                px
-                <br>
-
-                <label for="text-align">then align text <span>in</span> the </label>
-                <select name="text-align" id="text-align" onchange="alignWordPointer(this);redrawBg();redrawText()" style="transform:rotate(-3.5deg)">
-                    <option value="left">left</option>
-                    <option value="center" selected>center</option>
-                    <option value="right">right</option>
-                </select>
-                .
-            </div>
-            <hr>
-    
-            <h2><i class="fa fa-font" style="transform:rotate(10deg)"></i>Fonts</h2>
-            <div id="font-options">
-                <label for="font-family">Set family</label>
-                <input type="text" name="font-family" id="font-family" value="sans-serif" placeholder="sans-serif" style="font-family:sans-serif">
-                <label for="font-size">with size of</label>
-                <input type="number" name="font-size" id="font-size" min="80" max="240" value="120" step="2" onchange="redrawBg()">
-                px.
-                <p>Click <i class="fa fa-refresh"></i>Refresh to see changes.</p>
-            </div>
-            <hr>
-    
-            <div id="show-logo">
-                <label class="cb-container">
-                    <input type="checkbox" name="show-logo" onclick="toggleLogo(this)" onchange="redrawBg()" checked>
-                    <span class="checkmark"></span>
-                    Show "Take your heart" logo
-                </label>
-            </div>
-    
-            <div id="logo-size">
-                <label for="logo-size">Scale logo by</label>
-                <input type="number" name="logo-size" id="logo-size-option" min="0" max="10" value="1" step="0.05" onchange="redrawBg()">
-                <label for="offset">with an offset of </label>
-                <input type="number" name="offset" id="logo-offset" min="0" max="1000" value="20" onchange="redrawBg()">
-                px.
+            <div class="tab-btn" id="tab-handler">
+                <button id="option-default" data-text-option="alignment"><i class="fa fa-arrows" style="transform:rotate(-10deg)"></i></button>
+                <button data-text-option="fonts"><i class="fa fa-font" style="transform:rotate(10deg)"></i></button>
+                <button data-text-option="decoration"><i class="fa fa-paint-brush" style="transform:rotate(-10deg)"></i></button>
+                <button data-text-option="advanced"><i class="fa fa-cog" style="transform:rotate(10deg)"></i></button>
             </div>
 
-            <hr>
-
-            <div id="delay-rate">
-                <label for="delay-rate">Delay each text being created by</label>
-                <input type="number" name="delay-rate" min="0" max="1000" value="50" onchange="saveDelay()"> ms
-                <p><i class="fa fa-info-circle"></i> Increase this value if you feels the page is laggy.</p>
-            </div>
+            <!-- Alignments -->
+            <div class="options-tab" id="alignment">
+                <h2>Position and alignments</h2>
+                <div id="text-options">
+                    <label class="cb-container">
+                        <input type="checkbox" name="text-options" onclick="isMiddle=this.checked" onchange="redrawText();redrawBg()" checked>
+                        <span class="checkmark"></span>Put text in the middle
+                    </label>
     
+                    <label for="text-top">or shift text from top by</label>
+                    <input type="number" name="text-top" id="text-top" min="0" max="2000" value="0" step="5" onchange="redrawText();redrawBg()">
+                    px
+                    <br><br>
+    
+                    <label for="text-align"><i class="fa fa-align-center"></i>Align text: </label>
+                    <select name="text-align" id="text-align" onchange="redrawBg();redrawText()" style="transform:rotate(-3.5deg)">
+                        <option value="left">left</option>
+                        <option value="center" selected>center</option>
+                        <option value="right">right</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Fonts -->
+            <div class="options-tab" id="fonts">
+                <h2>Fonts</h2>
+                <div id="font-options">
+                    <label for="font-family">Set family</label>
+                    <input type="text" name="font-family" id="font-family" value="sans-serif" placeholder="sans-serif" style="font-family:sans-serif">
+                    <label for="font-size">with size of</label>
+                    <input type="number" name="font-size" id="font-size" min="80" max="240" value="120" step="2" onchange="redrawBg()">
+                    px.
+                    <p>Font family are supported by the operating system. Custom fonts are not fully supported.</p>
+                    <p>Click <i class="fa fa-refresh"></i>Refresh to see changes.</p>
+                </div>
+            </div>
+
+            <!-- Decorations -->
+            <div class="options-tab" id="decoration">
+                <h2>Text Stroke (Experimental)</h2>
+                <div id="stroke">
+                    <label class="cb-container">
+                        <input type="checkbox" name="stroke" onclick="textStroke=this.checked" onchange="redrawText()">
+                        <span class="checkmark"></span>Stroke text
+                    </label>
+                    <!--
+                        <label for="stroke-width">Set width of stroke to</label>
+                        <input type="number" name="stroke-width" id="stroke-width" min="0" max="20" value="0" step="1" onchange="redrawBg()">
+                        px.
+                    -->
+                    <p>More text stroke customization options coming soon!</p>
+                </div>
+
+                <hr>
+        
+                <h2>Logo options</h2>
+                <div id="show-logo">
+                    <label class="cb-container">
+                        <input type="checkbox" name="show-logo" onclick="showLogo=this.checked" onchange="redrawBg()" checked>
+                        <span class="checkmark"></span>
+                        Show "Take your heart" logo
+                    </label>
+                </div>
+        
+                <div id="logo-size">
+                    <label for="logo-size">Scale logo by</label>
+                    <input type="number" name="logo-size" id="logo-size-option" min="0" max="10" value="1" step="0.05" onchange="redrawBg()">
+                    <label for="offset">with an offset of </label>
+                    <input type="number" name="offset" id="logo-offset" min="0" max="1000" value="20" onchange="redrawBg()">
+                    px.
+                </div>
+            </div>
+
+            <!-- Advanced -->
+            <div class="options-tab" id="advanced">
+                <h2>Delay rate</h2>
+                <div id="delay-rate">
+                    <label for="delay-rate">Delay each text being created by</label>
+                    <input type="number" name="delay-rate" min="0" max="1000" value="50" onchange="saveDelay()"> ms
+                    <p><i class="fa fa-info-circle"></i> Increase this value if you feels the page is laggy.</p>
+                </div>
+            </div>
+            
             <hr>
+            
+            <!-- Watermarking -->
             <div id="wtm-option">
                 <label class="cb-container">
-                    <input type="checkbox" name="showWatermark" id="showWatermark" onclick="toggleWtmark(this)" checked onchange="redrawBg()">
+                    <input type="checkbox" name="showWatermark" id="showWatermark" onclick="showWtm=this.checked" checked onchange="redrawBg()">
                     <span class="checkmark"></span>
                     Show watermark to this website
                 </label>
                 <p>Completely optional step, if you want to share this tool and support me, consider leaving this option on.</p>
             </div>
+
+            <button class="action-btn" onclick="exportCard()"><i class="fa fa-arrow-circle-o-down"></i>Download your card</button>
+
         </div>
 
-    </div>
-
-    <div id="actions" class="btn-groups">
-        <button onclick="clearCard(this)"><i class="fa fa-times-circle-o"></i>Clear</button>
-        <button onclick="exportCard()"><i class="fa fa-arrow-circle-o-down"></i>Export this card</button>
     </div>
 
     <hr>
@@ -167,12 +198,11 @@
         </a>
     </div>
 
-    <p id="version">v.3.0.7 (<a href="https://github.com/skyventuree/p5cc/blob/main/CHANGELOG.md">See changelog</a>)</p>
+    <p id="version">v.3.1 (<a href="https://github.com/skyventuree/p5cc/blob/main/CHANGELOG.md">See changelog</a>)</p>
 
     <!-- Main utility and core function-->
     <script src="scripts/editor.js"></script>
     <script src="scripts/card.js"></script>
-    <script src="scripts/style.js"></script>
     <script src="scripts/exporter.js"></script>
 
     <!-- Text generator from Persona 5 Style Text Gen @lzxhahaha -->

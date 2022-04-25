@@ -178,10 +178,40 @@ class BoxText {
 
         }
 
+        /* STROKE DRAWINGS */
+
+        const imageData = ctx.getImageData(0, 0, canvasWidth, canvasHeight);
+        const newImageData = ctx.createImageData(canvasWidth, canvasHeight);
+
+        if (textStroke) {
+            const coreSize = 6, start = Math.floor(coreSize / 2);
+            for (let i = start; i < imageData.height - start; ++i) {
+                for (let j = start; j < imageData.width - start; ++j) {
+                    const index = i * imageData.width * 4 + j * 4;
+                    if (!imageData.data[index + 3]) {
+                        continue;
+                    }
+
+                    const a = imageData.data[index + 3];
+                    for (let x = i - coreSize + 1; x < i + coreSize; ++x) {
+                        for (let y = j - coreSize + 1; y < j + coreSize; ++y) {
+                            const newIndex = x * imageData.width * 4 + y * 4;
+                            newImageData.data[newIndex] = 255;
+                            newImageData.data[newIndex + 1] = 255;
+                            newImageData.data[newIndex + 2] = 255;
+                            newImageData.data[newIndex + 3] += a / 4;
+                        }
+                    }
+                }
+            }
+        }
+
         const {
             canvas: borderCanvas,
             context: borderCtx
-        } = letterCanvas(canvasWidth, canvasHeight);
+        } = letterCanvas(1770, 1300);
+
+        borderCtx.putImageData(newImageData, 0, 0);
 
         ctx.save();
         ctx.globalCompositeOperation = 'destination-over';

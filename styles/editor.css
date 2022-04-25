@@ -9,6 +9,10 @@ input, textarea, button, select {
     outline: none;
 }
 
+.options-tab>h2 {
+    text-align: center;
+}
+
 select {
     box-sizing: border-box;
     -webkit-box-sizing: border-box;
@@ -69,6 +73,11 @@ screen and (max-device-width:767px) {
 
 #editor > div > * {
     margin: 10px;
+}
+
+/* Tab options */
+.options-tab {
+    display: none;
 }
 
 /* Rotation decorations */

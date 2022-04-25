@@ -1,35 +1,5 @@
-// editor related switches
-var showLogo = true, showWtm = true, isMiddle = true;
-
-function toggleLogo(element) {
-    showLogo = element.checked;
-    document.querySelectorAll('#logo-size>input').forEach(function(e) {
-        e.disabled = !showLogo;
-    })
-    redrawBg()
-}
-
-function toggleWtmark(element) {
-    showWtm = element.checked;
-    redrawBg()
-}
-
-function middleText(element) {
-    isMiddle = element.checked;
-    document.querySelector('#text-top').disabled = isMiddle;
-    redrawBg()
-}
-
-function alignWordPointer(element) {
-    let pointerWord = document.querySelector('#text-options > label:nth-child(5) > span');
-    document.querySelector('#content > textarea').style.textAlign = element.value;
-    redrawText()
-    if (element.value === "center") {
-        pointerWord.innerHTML = 'in';
-        return
-    }
-    pointerWord.innerHTML = 'on';
-}
+// editor related switches and option
+var showLogo = true, showWtm = true, isMiddle = true, textStroke = false;
 
 // clearing the input field
 let defaults = '<i class="fa fa-times-circle-o"></i>Clear';
@@ -54,6 +24,7 @@ function clearCard(element) {
     }, 1500);
 }
 
+// delay function
 function saveDelay() {
     let delay = Number(document.querySelector('#delay-rate > input[type="number"]').value);
     let date = new Date();
@@ -68,4 +39,22 @@ window.onload = function() {
     if (delay) {
         document.querySelector('#delay-rate > input[type="number"]').value = delay;
     }
+    document.querySelector('#option-default').click();
 }
+
+// tab handler for text options
+document.getElementById('tab-handler').addEventListener('click', function(e) {
+    if(e.target) {
+        var option = e.target.closest('button').dataset.textOption;
+
+        // disable all elements
+        Array.from(document.getElementsByClassName('options-tab')).forEach(function(e){e.style.display = 'none'})
+        var lol = document.getElementsByClassName('tab-btn')[0].children
+        Array.from(lol).forEach(function(e){e.classList.remove('active')})
+        console.log(lol)
+
+        // enable the selected element
+        document.getElementById(option).style.display = 'block';
+        e.target.closest('button').classList.add('active');
+	}
+});
