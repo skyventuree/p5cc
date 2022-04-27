@@ -106,6 +106,18 @@
 
             <!-- Fonts -->
             <div class="options-tab" id="fonts">
+                <h2>Text color (Experimental)</h2>
+                <div id="text-color-options">
+                    <label for="text-color">Pick color: </label>
+                    <input type="color" name="text-color-picker" id="text-color-picker" value="#ffffff">
+                    <label for="text-color-picker">or use Hex: </label>
+                    <input type="text" name="text-color-hex" id="text-color-hex" placeholder="#ffffff" onchange="redrawText();redrawBg()">
+
+                    <p>(Random red colored letters are currently not affected by this option. This feature is coming soon.)</p>
+
+                </div>
+
+                <hr>
                 <h2>Fonts</h2>
                 <div id="font-options">
                     <label for="font-family">Set family</label>
@@ -134,8 +146,12 @@
                     <p>More text stroke customization options coming soon!</p>
                 </div>
 
-                <hr>
-        
+                
+                
+            </div>
+            
+            <!-- Advanced -->
+            <div class="options-tab" id="advanced">
                 <h2>Logo options</h2>
                 <div id="show-logo">
                     <label class="cb-container">
@@ -144,7 +160,7 @@
                         Show "Take your heart" logo
                     </label>
                 </div>
-        
+                
                 <div id="logo-size">
                     <label for="logo-size">Scale logo by</label>
                     <input type="number" name="logo-size" id="logo-size-option" min="0" max="10" value="1" step="0.05" onchange="redrawBg()">
@@ -152,10 +168,9 @@
                     <input type="number" name="offset" id="logo-offset" min="0" max="1000" value="20" onchange="redrawBg()">
                     px.
                 </div>
-            </div>
+                
+                <hr>
 
-            <!-- Advanced -->
-            <div class="options-tab" id="advanced">
                 <h2>Delay rate</h2>
                 <div id="delay-rate">
                     <label for="delay-rate">Delay each text being created by</label>
@@ -207,9 +222,10 @@
         </a>
     </div>
 
-    <p id="version">v.3.1 (<a href="https://github.com/skyventuree/p5cc/blob/main/CHANGELOG.md">See changelog</a>)</p>
+    <p id="version">v.<span id="version-number"></span> (<a href="https://github.com/skyventuree/p5cc/blob/main/CHANGELOG.md">See changelog</a>)</p>
 
     <!-- Main utility and core function-->
+    <script src="scripts/main.js"></script>
     <script src="scripts/editor.js"></script>
     <script src="scripts/card.js"></script>
     <script src="scripts/exporter.js"></script>

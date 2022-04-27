@@ -2,6 +2,14 @@
 
 ## CHANGELOG
 
+### 3.1.1
+
+- Fix cosmetic.
+- Moved certain settings.
+- Changed some settings name.
+- Added Google Analytics.
+- New `dev` branch to keep development public.
+
 ### 3.1
 
 - Text customization is now organized in tabs.
