@@ -2,6 +2,10 @@
 
 ## CHANGELOG
 
+### 3.1.2
+
+- Added text stroke customize.
+
 ### 3.1.1
 
 - Fix cosmetic.
