@@ -1,5 +1,9 @@
 // editor related switches and option
-var showLogo = true, showWtm = true, isMiddle = true, textStroke = false;
+var showLogo = true, 
+    showWtm = true, 
+    isMiddle = true, 
+    textStroke = false,
+    textStrokeWidth = 6;
 
 // clearing the input field
 let defaults = '<i class="fa fa-times-circle-o"></i>Clear';
@@ -49,9 +53,8 @@ document.getElementById('tab-handler').addEventListener('click', function(e) {
 
         // disable all elements
         Array.from(document.getElementsByClassName('options-tab')).forEach(function(e){e.style.display = 'none'})
-        var lol = document.getElementsByClassName('tab-btn')[0].children
-        Array.from(lol).forEach(function(e){e.classList.remove('active')})
-        console.log(lol)
+        var tabButton = document.getElementsByClassName('tab-btn')[0].children
+        Array.from(tabButton).forEach(function(e){e.classList.remove('active')})
 
         // enable the selected element
         document.getElementById(option).style.display = 'block';

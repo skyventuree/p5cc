@@ -138,16 +138,13 @@
                         <input type="checkbox" name="stroke" onclick="textStroke=this.checked" onchange="redrawText()">
                         <span class="checkmark"></span>Stroke text
                     </label>
-                    <!--
-                        <label for="stroke-width">Set width of stroke to</label>
-                        <input type="number" name="stroke-width" id="stroke-width" min="0" max="20" value="0" step="1" onchange="redrawBg()">
-                        px.
-                    -->
-                    <p>More text stroke customization options coming soon!</p>
+                    
+                    <label for="stroke-width">Set width of stroke to</label>
+                    <input type="number" name="stroke-width" id="stroke-width" min="5" max="10" value="6" step="1" onchange="textStrokeWidth=this.value">
+                    px.
+                    <p>Click <i class="fa fa-refresh"></i>Refresh to see changes.</p>
                 </div>
 
-                
-                
             </div>
             
             <!-- Advanced -->

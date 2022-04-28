@@ -180,11 +180,11 @@ class BoxText {
 
         /* STROKE DRAWINGS */
 
-        const imageData = ctx.getImageData(0, 0, canvasWidth, canvasHeight);
-        const newImageData = ctx.createImageData(canvasWidth, canvasHeight);
+        const imageData = ctx.getImageData(0, 0, 1770, 1300);
+        const newImageData = ctx.createImageData(1770, 1300);
 
         if (textStroke) {
-            const coreSize = 6, start = Math.floor(coreSize / 2);
+            const coreSize = parseInt(textStrokeWidth), start = Math.floor(coreSize / 2);
             for (let i = start; i < imageData.height - start; ++i) {
                 for (let j = start; j < imageData.width - start; ++j) {
                     const index = i * imageData.width * 4 + j * 4;
@@ -196,6 +196,8 @@ class BoxText {
                     for (let x = i - coreSize + 1; x < i + coreSize; ++x) {
                         for (let y = j - coreSize + 1; y < j + coreSize; ++y) {
                             const newIndex = x * imageData.width * 4 + y * 4;
+                            
+                            // some kind of rgb color 
                             newImageData.data[newIndex] = 255;
                             newImageData.data[newIndex + 1] = 255;
                             newImageData.data[newIndex + 2] = 255;
