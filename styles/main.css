@@ -121,6 +121,10 @@ screen and (max-device-width:767px) {
         grid-template-rows: 1fr 1fr; 
     }
 
+    #header>#intro-text {
+        padding-right: 5px;
+    }
+
     #header > #intro-icon > img {
         width: 50%;
         height: 0 auto;
