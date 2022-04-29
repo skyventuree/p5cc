@@ -20,7 +20,7 @@ Assets:
 All assets are all under fair use.
 
 _Credits can also be seen on the website along with links to the original site and owners, at the bottom of the page._
-#
+
 ## Version 2 and earlier
 
 Need version 2 of this tool? I got you covered: [p5cc-python](https://github.com/sora-archive/p5cc-python)
