@@ -2,6 +2,10 @@
 
 ## CHANGELOG
 
+### 3.1.2.1
+
+- Automatically minify the source code so it would load faster than the time Joker takes one's heart.
+
 ### 3.1.2
 
 - Added text stroke customize.
