@@ -1,22 +1,34 @@
 #card-preview { 
-    width: 60vw;
-    height: 60vh;
+    width: 60wv;
+    height: 70vh;
     padding: 20px;
 }
 
 #card-preview>canvas {
     position: absolute;
     left: 50%;
-    transform: translate(-50%, 0);
-    height: 60vh;
+    transform: translate(-50%, 7vh);
+    height: 58vh;
     object-fit: cover;
     border: 1px solid black;
+}
+
+#canvas-bg {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-49.5%);
+    height: 72vh;
 }
 
 @media screen and (max-width:767px),
 screen and (max-device-width:767px) {
     #card-preview {
         height: 45vh;
+    }
+
+    #canvas-bg {
+        /* I'm sorry mobile users. */
+        display: none;
     }
 
     #card-preview>canvas {

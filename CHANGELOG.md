@@ -2,6 +2,12 @@
 
 ## CHANGELOG
 
+### 3.1.3
+
+- Add background image.
+- Add background canvas.
+- Add notice to support the tool.
+
 ### 3.1.2.1
 
 - Automatically minify the source code so it would load faster than the time Joker takes one's heart.

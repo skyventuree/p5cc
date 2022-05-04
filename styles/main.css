@@ -56,6 +56,34 @@ a:hover {
     filter: invert(1);
 }
 
+#notice-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+
+#notice-bg > p {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+#notice-support {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: fit-content;
+    background-color: #FF0405;
+    border: 10px solid black;
+    padding: 10px;
+}
+
 #header {
     display: grid;
     grid-template-columns: 40% 1fr;

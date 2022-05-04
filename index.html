@@ -42,6 +42,17 @@
 </head>
 <body>
     <base target="_blank" rel="noopener noreferrer">
+
+    <!-- Notice to support -->
+    <div id="notice-bg">
+        <div id="notice-support">
+            <h2>Hey there!</h2>
+            <p>Thanks for using Persona 5 Calling Card Maker! If you like this tool then please consider support me!</p>
+            <p></p>
+        </div>
+        <p>Click outside to dismiss</p>
+    </div>
+
     <div id="header">
         <div id="intro-icon">
             <img src="assets/icon.png">
@@ -55,11 +66,12 @@
     <hr>
 
     <div id="card-preview">
+        <img src="assets/canvas.png" id="canvas-bg">
         <canvas id="canvas-card" width="1770" height="1300"></canvas>
         <canvas id="canvas-text" width="1770" height="1300"></canvas>
     </div>
     
-    <button id="refresh" onclick="redrawBg();redrawText()"><i class="fa fa-refresh"></i>Refresh</button>
+    <button id="refresh" class="action-btn" onclick="redrawBg();redrawText()"><i class="fa fa-refresh"></i>Refresh</button>
     
     <hr>
 
