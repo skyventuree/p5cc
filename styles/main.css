@@ -18,9 +18,9 @@ body {
 body {
     height: 100%;
     font-size: 18px;
-    background-color: #FF0405;
     overflow-x: hidden;
     background: url("../assets/background.jpg") no-repeat center center fixed;
+    background-color: #FF0405; /* fallback */
 }
 
 body, div {
