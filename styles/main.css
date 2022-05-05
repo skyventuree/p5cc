@@ -20,7 +20,7 @@ body {
     font-size: 18px;
     background-color: #FF0405;
     overflow-x: hidden;
-    background: url("/assets/background.jpg") no-repeat center center fixed;
+    background: url("../assets/background.jpg") no-repeat center center fixed;
 }
 
 body, div {
