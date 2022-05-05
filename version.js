@@ -16,3 +16,5 @@ if (VCBOOL === false || VCINFO !== VERSION) {
         document.getElementById('notice-bg').style.display = 'none';
     });
 }
+
+

@@ -1,1 +1,226 @@
-class BoxText{chars=[];fontSize=120;fontFamily="sans-serif";gutter=5;pendding=30;constructor(t,e={}){if(e){const{fontSize:t,fontFamily:o,gutter:i,pendding:a}=e;t&&(this.fontSize=t),o&&(this.fontFamily=o),i&&(this.gutter=i),a&&(this.pendding=a)}t||console.error("Must set text.");const o=t.split(""),i=new Array(o.length).fill(CHAR_MODE.WHITE);i[0]=CHAR_MODE.FIRST;for(let t=1;t<o.length;t+=5)for(let e=t;e<t+5-1&&e<o.length;++e)if(10*Math.random()>6){i[e]=CHAR_MODE.RED;break}for(const[t,e]of o.entries())/^\s$/.test(e)?this.chars.push(new BoxChar("",CHAR_MODE.SPACE)):this.chars.push(new BoxChar(e,i[t],this.fontSize,this.fontFamily))}draw(t){const e=t.getContext("2d");if(!e)return void console.error("Failed to load canvas");e.clearRect(0,0,t.width,t.height);const o=this.pendding,i=this.gutter;let a=2*o,n=0;for(const t of this.chars)if(t instanceof BoxChar){const e=t.outterSize;a+=e.width+i,n=Math.max(n,e.height)}else a+=2*i;const s=document.querySelector("#text-align");let l=0;"center"===s.value&&(l=(t.width-a)/2),"right"===s.value&&(l=t.width-a);let r=o+l;n+=2*o,e.fillStyle=COLORS.WHITE,e.textBaseline="top",e.textAlign="left";for(const t of this.chars){if(t.mode==CHAR_MODE.SPACE){r+=2*i;continue}e.save();let{char:a,top:s,left:l,width:h,height:f,angle:c,mode:d,color:g}=t;if(d==CHAR_MODE.FIRST){const{width:d,height:S}=t.outterSize,C=r+d/2,u=o+S/2;rotateCanvas(e,c-5,C,u),e.fillStyle=COLORS.BLACK,e.fillRect(r,(n-S)/2,d,S),rotateCanvas(e,c+3,C,u);const R=.85,w=d*R,x=S*R,O=r+(d-w)/2,m=(n-x)/2;e.fillStyle=COLORS.RED,e.fillRect(O,m,w,x),rotateCanvas(e,c+2,C,u);const v=r+(d-h)/2-l,p=(n-f)/2-s;e.fillStyle=g,e.font=t.font,e.fillText(a,v,p),r+=t.outterSize.width+i}else{const{width:d,height:S}=t.outterSize,C=r+d/2,u=o+S/2;rotateCanvas(e,c+1,C,u),e.fillStyle=COLORS.BLACK,e.fillRect(r,(n-S)/2,d,S);const R=r+(d-h)/2-l,w=(n-f)/2-s;rotateCanvas(e,-1,C,u),e.fillStyle=g,e.font=t.font,e.fillText(a,R,w),r+=t.outterSize.width+i}e.restore()}const h=e.getImageData(0,0,1770,1300),f=e.createImageData(1770,1300);if(textStroke){const t=parseInt(textStrokeWidth),e=Math.floor(t/2);for(let o=e;o<h.height-e;++o)for(let i=e;i<h.width-e;++i){const e=o*h.width*4+4*i;if(!h.data[e+3])continue;const a=h.data[e+3];for(let e=o-t+1;e<o+t;++e)for(let o=i-t+1;o<i+t;++o){const t=e*h.width*4+4*o;f.data[t]=255,f.data[t+1]=255,f.data[t+2]=255,f.data[t+3]+=a/4}}}const{canvas:c,context:d}=letterCanvas(1770,1300);return d.putImageData(f,0,0),e.save(),e.globalCompositeOperation="destination-over",e.drawImage(c,0,0),e.restore(),n}}
+// text handling
+class BoxText {
+    chars = [];
+    fontSize = 120;
+    fontFamily = 'sans-serif';
+    gutter = 5;
+    pendding = 30;
+
+    constructor(text, options = {}) {
+        if (options) {
+            const {
+                fontSize,
+                fontFamily,
+                gutter,
+                pendding
+            } = options;
+            fontSize && (this.fontSize = fontSize);
+            fontFamily && (this.fontFamily = fontFamily);
+            gutter && (this.gutter = gutter);
+            pendding && (this.pendding = pendding);
+        }
+
+        if (!text) {
+            console.error('Must set text.');
+        }
+
+        const chars = text.split('');
+        const modes = new Array(chars.length).fill(CHAR_MODE.WHITE);
+        modes[0] = CHAR_MODE.FIRST;
+
+        // select a random range of character to be red
+        const range = 5;
+        for (let i = 1; i < chars.length; i += range) {
+            for (let j = i; j < i + range - 1 && j < chars.length; ++j) {
+                if (Math.random() * 10 > 6) {
+                    modes[j] = CHAR_MODE.RED;
+                    break;
+                }
+            }
+        }
+
+        for (const [index, char] of chars.entries()) {
+            if (/^\s$/.test(char)) {
+                this.chars.push(new BoxChar('', CHAR_MODE.SPACE));
+            } 
+            else {
+                this.chars.push(new BoxChar(char, modes[index], this.fontSize, this.fontFamily));
+            }
+        }
+    }
+
+    draw(canvas) {
+        const ctx = canvas.getContext('2d');
+
+        if (!ctx) {
+            console.error('Failed to load canvas');
+            return;
+        }
+
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        const pendding = this.pendding,
+            gutter = this.gutter;
+
+        let canvasWidth = pendding * 2,
+            canvasHeight = 0;
+
+            
+            for (const boxChar of this.chars) {
+                if (boxChar instanceof BoxChar) {
+                    const size = boxChar.outterSize;
+                canvasWidth += (size.width + gutter);
+                canvasHeight = Math.max(canvasHeight, size.height);
+            } else {
+                canvasWidth += 2 * gutter;
+            }
+        }
+        
+        // offset for text alignment
+        const align = document.querySelector('#text-align');
+        let widthOffset = 0;
+        if (align.value === 'center') {
+            widthOffset = (canvas.width - canvasWidth) / 2;
+        } 
+        if (align.value === 'right') {
+            widthOffset = canvas.width - canvasWidth;
+        }
+
+        let drawOffset = pendding + widthOffset;
+
+        canvasHeight = canvasHeight + pendding * 2;
+
+        ctx.fillStyle = COLORS.WHITE;
+        ctx.textBaseline = 'top';
+        ctx.textAlign = 'left';
+
+        /* CHARACTERS DRAWINGS */
+        for (const boxChar of this.chars) {
+            if (boxChar.mode == CHAR_MODE.SPACE) {
+                drawOffset += 2 * gutter;
+                continue;
+            }
+
+            ctx.save();
+
+            let {
+                char,
+                top,
+                left,
+                width,
+                height,
+                angle,
+                mode,
+                color
+            } = boxChar;
+
+            // if this is the first character
+            if (mode == CHAR_MODE.FIRST) {
+                const {
+                    width: borderWidth,
+                    height: borderHeight
+                } = boxChar.outterSize;
+
+                // black border background
+                const rotateX = drawOffset + borderWidth / 2,
+                    rotateY = pendding + borderHeight / 2;
+
+                rotateCanvas(ctx, angle - 5, rotateX, rotateY);
+                ctx.fillStyle = COLORS.BLACK;
+                ctx.fillRect(drawOffset, (canvasHeight - borderHeight) / 2, borderWidth, borderHeight);
+
+                // red background 
+                rotateCanvas(ctx, angle + 3, rotateX, rotateY);
+                const bgScale = 0.85;
+                const bgWidth = borderWidth * bgScale,
+                    bgHeight = borderHeight * bgScale;
+                const bgLeft = drawOffset + (borderWidth - bgWidth) / 2,
+                    bgTop = (canvasHeight - bgHeight) / 2;
+                ctx.fillStyle = COLORS.RED;
+                ctx.fillRect(bgLeft, bgTop, bgWidth, bgHeight);
+
+                // first character
+                rotateCanvas(ctx, angle + 2, rotateX, rotateY);
+                const textLeft = drawOffset + (borderWidth - width) / 2 - left,
+                    textTop = (canvasHeight - height) / 2 - top;
+                ctx.fillStyle = color;
+                ctx.font = boxChar.font;
+                ctx.fillText(char, textLeft, textTop);
+
+                drawOffset += boxChar.outterSize.width + gutter;
+            } 
+            
+            else {
+                // normal characters
+                const {
+                    width: bgWidth,
+                    height: bgHeight
+                } = boxChar.outterSize;
+
+                const rotateX = drawOffset + bgWidth / 2,
+                    rotateY = pendding + bgHeight / 2;
+
+                rotateCanvas(ctx, angle + 1, rotateX, rotateY);
+                ctx.fillStyle = COLORS.BLACK;
+                ctx.fillRect(drawOffset, (canvasHeight - bgHeight) / 2, bgWidth, bgHeight);
+
+                const textLeft = drawOffset + (bgWidth - width) / 2 - left,
+                    textTop = (canvasHeight - height) / 2 - top;
+                rotateCanvas(ctx, -1, rotateX, rotateY);
+                ctx.fillStyle = color;
+                ctx.font = boxChar.font;
+                ctx.fillText(char, textLeft, textTop);
+
+                drawOffset += boxChar.outterSize.width + gutter;
+            }
+      
+            ctx.restore();
+
+        }
+
+        /* STROKE DRAWINGS */
+
+        const imageData = ctx.getImageData(0, 0, 1770, 1300);
+        const newImageData = ctx.createImageData(1770, 1300);
+
+        if (textStroke) {
+            const coreSize = parseInt(textStrokeWidth), start = Math.floor(coreSize / 2);
+            for (let i = start; i < imageData.height - start; ++i) {
+                for (let j = start; j < imageData.width - start; ++j) {
+                    const index = i * imageData.width * 4 + j * 4;
+                    if (!imageData.data[index + 3]) {
+                        continue;
+                    }
+
+                    const a = imageData.data[index + 3];
+                    for (let x = i - coreSize + 1; x < i + coreSize; ++x) {
+                        for (let y = j - coreSize + 1; y < j + coreSize; ++y) {
+                            const newIndex = x * imageData.width * 4 + y * 4;
+                            
+                            // some kind of rgb color 
+                            newImageData.data[newIndex] = 255;
+                            newImageData.data[newIndex + 1] = 255;
+                            newImageData.data[newIndex + 2] = 255;
+                            newImageData.data[newIndex + 3] += a / 4;
+                        }
+                    }
+                }
+            }
+        }
+
+        const {
+            canvas: borderCanvas,
+            context: borderCtx
+        } = letterCanvas(1770, 1300);
+
+        borderCtx.putImageData(newImageData, 0, 0);
+
+        ctx.save();
+        ctx.globalCompositeOperation = 'destination-over';
+        ctx.drawImage(borderCanvas, 0, 0);
+
+        ctx.restore();
+
+        return canvasHeight;
+    }
+}
