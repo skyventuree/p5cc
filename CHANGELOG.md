@@ -4,9 +4,9 @@
 
 ### 3.1.3
 
+- Fixed text stroke issue.
 - Add background image.
 - Add background canvas.
-- Add notice to support the tool.
 
 ### 3.1.2.1
 
