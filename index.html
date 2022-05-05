@@ -1,1 +1,256 @@
-<!doctype html><html lang=en><meta charset=UTF-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1"><link rel=icon type=image/x-icon href=favicon.ico><title>Persona 5 Calling Card Maker</title><meta name=title content="Persona 5 Calling Card Maker"><meta name=description content="For the sake of effortlessly making a calling card. Sending your card to the darkest desire."><meta property=og:type content=website><meta property=og:url content=https://skyventuree.github.io/p5cc/index.html><meta property=og:title content="Persona 5 Calling Card Maker"><meta property=og:description content="For the sake of effortlessly making a calling card. Sending your card to the darkest desire."><meta property=og:image content=https://github.com/skyventuree/skyventuree/raw/main/meta.png><meta property=twitter:card content=summary_large_image><meta property=twitter:url content=https://skyventuree.github.io/p5cc/index.html><meta property=twitter:title content="Persona 5 Calling Card Maker"><meta property=twitter:description content="For the sake of effortlessly making a calling card. Sending your card to the darkest desire."><meta property=twitter:image content=https://github.com/skyventuree/skyventuree/raw/main/meta.png><script async src="https://www.googletagmanager.com/gtag/js?id=G-SH14TQVZSF"></script><script>function gtag(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],gtag("js",new Date),gtag("config","G-SH14TQVZSF")</script><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css><link rel=stylesheet href=styles/editor.css><link rel=stylesheet href=styles/card.css><link rel=stylesheet href=styles/main.css><link rel=stylesheet href=styles/button.css><base target=_blank rel="noopener noreferrer"><div id=notice-bg><div id=notice-content><h2>New version has arrived!</h2><p>In this update:<ul><li>Fixed some text stroke issue. (this won't be turned on by default at the moment.)<li>Added background canvas and images.<li>Squashed some minor bugs.</ul><p>View all version changelog by visit <a href=https://github.com/skyventuree/p5cc/blob/main/CHANGELOG.md>changelog</a>.<p>Something happened? Have a suggestion? <a href=https://github.com/skyventuree/p5cc/issues>Visit this page.</a></div><p>Click outside to dismiss</div><div id=header><div id=intro-icon><img src=assets/icon.png></div><div id=intro-text><h2>Persona 5 Calling Card Maker</h2><p>For the sake of effortlessly making a calling card.<br>Sending your card to the darkest desire.</div></div><hr><div id=card-preview><img src=assets/canvas.png id=canvas-bg><canvas id=canvas-card width=1770 height=1300></canvas><canvas id=canvas-text width=1770 height=1300></canvas></div><button id=refresh class=action-btn onclick=redrawBg(),redrawText()><i class="fa fa-refresh"></i>Refresh</button><hr><div id=editor><div id=content><label for=content>What do you want to write on the calling card?</label> <textarea name=content cols=30 rows=10 autocomplete=off placeholder="TAKE YOUR HEART"></textarea> <button class=action-btn onclick=clearCard(this)><i class="fa fa-times-circle-o"></i>Clear</button></div><div id=options><hr class=mobile><div class=tab-btn id=tab-handler><button id=option-default data-text-option=alignment><i class="fa fa-arrows" style=transform:rotate(-10deg)></i></button> <button data-text-option=fonts><i class="fa fa-font" style=transform:rotate(10deg)></i></button> <button data-text-option=decoration><i class="fa fa-paint-brush" style=transform:rotate(-10deg)></i></button> <button data-text-option=advanced><i class="fa fa-cog" style=transform:rotate(10deg)></i></button></div><div class=options-tab id=alignment><h2>Position and alignments</h2><div id=text-options><label class=cb-container><input type=checkbox name=text-options onclick="isMiddle=this.checked" onchange=redrawText(),redrawBg() checked> <span class=checkmark></span>Put text in the middle</label> <label for=text-top>or shift text from top by</label> <input type=number name=text-top id=text-top min=0 max=2000 value=0 step=5 onchange=redrawText(),redrawBg()> px<br><br><label for=text-align><i class="fa fa-align-center"></i>Align text:</label> <select name=text-align id=text-align onchange=redrawBg(),redrawText() style=transform:rotate(-3.5deg)><option value=left>left<option value=center selected>center<option value=right>right</select></div></div><div class=options-tab id=fonts><h2>Fonts</h2><div id=font-options><label for=font-family>Set family</label> <input name=font-family id=font-family value=sans-serif placeholder=sans-serif style=font-family:sans-serif> <label for=font-size>with size of</label> <input type=number name=font-size id=font-size min=80 max=240 value=120 step=2 onchange=redrawBg()> px.<p>Font family are supported by the operating system. Custom fonts are not fully supported.<p>Click <i class="fa fa-refresh"></i>Refresh to see changes.</div></div><div class=options-tab id=decoration><h2>Text Stroke</h2><div id=stroke><label class=cb-container><input type=checkbox name=stroke onclick="textStroke=this.checked" onchange=redrawText()> <span class=checkmark></span>Stroke text</label> <label for=stroke-width>Set width of stroke to</label> <input type=number name=stroke-width id=stroke-width min=5 max=10 value=6 step=1 onchange="textStrokeWidth=this.value"> px.<p>Click <i class="fa fa-refresh"></i>Refresh to see changes.</div></div><div class=options-tab id=advanced><h2>Logo options</h2><div id=show-logo><label class=cb-container><input type=checkbox name=show-logo onclick="showLogo=this.checked" onchange=redrawBg() checked> <span class=checkmark></span> Show "Take your heart" logo</label></div><div id=logo-size><label for=logo-size>Scale logo by</label> <input type=number name=logo-size id=logo-size-option min=0 max=10 value=1 step=0.05 onchange=redrawBg()> <label for=offset>with an offset of</label> <input type=number name=offset id=logo-offset min=0 max=1000 value=20 onchange=redrawBg()> px.</div><hr><h2>Delay rate</h2><div id=delay-rate><label for=delay-rate>Delay each text being created by</label> <input type=number name=delay-rate min=0 max=1000 value=50 onchange=saveDelay()> ms<p><i class="fa fa-info-circle"></i> Increase this value if you feels the page is laggy.</div></div><br><hr><div id=wtm-option><label class=cb-container><input type=checkbox name=showWatermark id=showWatermark onclick="showWtm=this.checked" checked onchange=redrawBg()> <span class=checkmark></span> Show watermark to this website</label><p>Completely optional step, if you want to share this tool and support me, consider leaving this option on.</div><button class=action-btn onclick=exportCard()><i class="fa fa-arrow-circle-o-down"></i>Download your card</button></div></div><hr><p style=text-align:center>Something happened? <a href=https://github.com/skyventuree/p5cc/issues>Report them here.</a><div id=credits><p>Persona 5 © ATLUS. © SEGA. All rights reserved.<p><a href=https://github.com/skyventuree/p5cc>Persona 5 Calling Card Maker</a> website designed and written by <a href=https://skyventuree.github.io>shigukk</a>.<p>Assets used:<ul><li><a href=https://www.deviantart.com/elmind/art/Persona-5-Calling-Card-Base-676530039>Persona 5 Calling Card Base</a> by <a href=https://www.deviantart.com/elmind>Elmind</a>.<li><a href=https://lzxhahaha.github.io/persona5/ >Persona 5 Style Text Generator</a> by <a href=https://github.com/LzxHahaha>LzxHahaha</a>.<br>Ported and modified by <a href=https://skyventuree.github.io>shigukk</a>.<li>Persona 5 Logo and Assets by ALTUS.</ul><p>All assets are all under fair use.</div><div id=support><a href=https://ko-fi.com/shigukk style=text-decoration:none><button><i class="fa fa-coffee"></i>Buy me a coffee!</button> </a>- or - <a href=https://github.com/skyventuree/p5cc style=text-decoration:none><button><i class="fa fa-github"></i>Check out source code!</button></a></div><p id=version>v.<span id=version-number></span> (<a href=https://github.com/skyventuree/p5cc/blob/main/CHANGELOG.md>See changelog</a>)</p><script src=version.js></script><script src=scripts/editor.js></script><script src=scripts/card.js></script><script src=scripts/exporter.js></script><script src=scripts/textgen/utils.js></script><script src=scripts/textgen/char.js></script><script src=scripts/textgen/text.js></script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+    <!-- Primary Meta Tags -->
+    <title>Persona 5 Calling Card Maker</title>
+    <meta name="title" content="Persona 5 Calling Card Maker">
+    <meta name="description" content="For the sake of effortlessly making a calling card. Sending your card to the darkest desire.">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://skyventuree.github.io/p5cc/index.html">
+    <meta property="og:title" content="Persona 5 Calling Card Maker">
+    <meta property="og:description" content="For the sake of effortlessly making a calling card. Sending your card to the darkest desire.">
+    <meta property="og:image" content="https://github.com/skyventuree/skyventuree/raw/main/meta.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://skyventuree.github.io/p5cc/index.html">
+    <meta property="twitter:title" content="Persona 5 Calling Card Maker">
+    <meta property="twitter:description" content="For the sake of effortlessly making a calling card. Sending your card to the darkest desire.">
+    <meta property="twitter:image" content="https://github.com/skyventuree/skyventuree/raw/main/meta.png">
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-SH14TQVZSF"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() {dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-SH14TQVZSF');
+    </script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="styles/editor.css">
+    <link rel="stylesheet" href="styles/card.css">
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/button.css">
+</head>
+<body>
+    <base target="_blank" rel="noopener noreferrer">
+
+    <!-- Notice to support -->
+    <div id="notice-bg">
+        <div id="notice-content">
+            <h2>New version has arrived!</h2>
+            <p>In this update:</p>
+            <ul>
+                <li>Fixed some text stroke issue. (this won't be turned on by default at the moment.)</li>
+                <li>Added background canvas and images.</li>
+                <li>Squashed some minor bugs.</li>
+            </ul>
+            <p>View all version changelog by visit <a href="https://github.com/skyventuree/p5cc/blob/main/CHANGELOG.md">changelog</a>.</p>
+            <p>Something happened? Have a suggestion? <a href="https://github.com/skyventuree/p5cc/issues">Visit this page.</a></p>
+        </div>
+        <p>Click outside to dismiss</p>
+    </div>
+
+    <div id="header">
+        <div id="intro-icon">
+            <img src="assets/icon.png">
+        </div>
+        <div id="intro-text">
+            <h2>Persona 5 Calling Card Maker</h2>
+            <p>For the sake of effortlessly making a calling card.<br>
+                Sending your card to the darkest desire.</p>
+        </div>
+    </div>
+    <hr>
+
+    <!-- Preview area -->
+    <div id="card-preview">
+        <img src="assets/canvas.png" id="canvas-bg">
+        <canvas id="canvas-card" width="1770" height="1300"></canvas>
+        <canvas id="canvas-text" width="1770" height="1300"></canvas>
+    </div>
+    
+    <button id="refresh" class="action-btn" onclick="redrawBg();redrawText()"><i class="fa fa-refresh"></i>Refresh</button>
+    
+    <hr>
+
+    <!-- Editor -->
+    <div id="editor">
+
+        <div id="content">
+            <label for="content">What do you want to write on the calling card?</label>
+            <textarea name="content" cols="30" rows="10" autocomplete="off" placeholder="TAKE YOUR HEART"></textarea>
+            <button class="action-btn" onclick="clearCard(this)"><i class="fa fa-times-circle-o"></i>Clear</button>
+        </div>
+
+        <div id="options">
+            <hr class="mobile">
+
+            <div class="tab-btn" id="tab-handler">
+                <button id="option-default" data-text-option="alignment"><i class="fa fa-arrows" style="transform:rotate(-10deg)"></i></button>
+                <button data-text-option="fonts"><i class="fa fa-font" style="transform:rotate(10deg)"></i></button>
+                <button data-text-option="decoration"><i class="fa fa-paint-brush" style="transform:rotate(-10deg)"></i></button>
+                <button data-text-option="advanced"><i class="fa fa-cog" style="transform:rotate(10deg)"></i></button>
+            </div>
+
+            <!-- Alignments -->
+            <div class="options-tab" id="alignment">
+                <h2>Position and alignments</h2>
+                <div id="text-options">
+                    <label class="cb-container">
+                        <input type="checkbox" name="text-options" onclick="isMiddle=this.checked" onchange="redrawText();redrawBg()" checked>
+                        <span class="checkmark"></span>Put text in the middle
+                    </label>
+    
+                    <label for="text-top">or shift text from top by</label>
+                    <input type="number" name="text-top" id="text-top" min="0" max="2000" value="0" step="5" onchange="redrawText();redrawBg()">
+                    px
+                    <br><br>
+    
+                    <label for="text-align"><i class="fa fa-align-center"></i>Align text: </label>
+                    <select name="text-align" id="text-align" onchange="redrawBg();redrawText()" style="transform:rotate(-3.5deg)">
+                        <option value="left">left</option>
+                        <option value="center" selected>center</option>
+                        <option value="right">right</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Fonts -->
+            <div class="options-tab" id="fonts">
+                <!-- WIP
+                <h2>Text color (Experimental)</h2>
+                <div id="text-color-options">
+                    <label for="text-color">Pick color: </label>
+                    <input type="color" name="text-color-picker" id="text-color-picker" value="#ffffff">
+                    <label for="text-color-picker">or use Hex: </label>
+                    <input type="text" name="text-color-hex" id="text-color-hex" placeholder="#ffffff" onchange="redrawText();redrawBg()">
+
+                    <p>(Random red colored letters are currently not affected by this option. This feature is coming soon.)</p>
+
+                </div>
+                <hr>
+            -->
+                <h2>Fonts</h2>
+                <div id="font-options">
+                    <label for="font-family">Set family</label>
+                    <input type="text" name="font-family" id="font-family" value="sans-serif" placeholder="sans-serif" style="font-family:sans-serif">
+                    <label for="font-size">with size of</label>
+                    <input type="number" name="font-size" id="font-size" min="80" max="240" value="120" step="2" onchange="redrawBg()">
+                    px.
+                    <p>Font family are supported by the operating system. Custom fonts are not fully supported.</p>
+                    <p>Click <i class="fa fa-refresh"></i>Refresh to see changes.</p>
+                </div>
+            </div>
+
+            <!-- Decorations -->
+            <div class="options-tab" id="decoration">
+                <h2>Text Stroke</h2>
+                <div id="stroke">
+                    <label class="cb-container">
+                        <input type="checkbox" name="stroke" onclick="textStroke=this.checked" onchange="redrawText()">
+                        <span class="checkmark"></span>Stroke text
+                    </label>
+                    
+                    <label for="stroke-width">Set width of stroke to</label>
+                    <input type="number" name="stroke-width" id="stroke-width" min="5" max="10" value="6" step="1" onchange="textStrokeWidth=this.value">
+                    px.
+                    <p>Click <i class="fa fa-refresh"></i>Refresh to see changes.</p>
+                </div>
+
+            </div>
+            
+            <!-- Advanced -->
+            <div class="options-tab" id="advanced">
+                <h2>Logo options</h2>
+                <div id="show-logo">
+                    <label class="cb-container">
+                        <input type="checkbox" name="show-logo" onclick="showLogo=this.checked" onchange="redrawBg()" checked>
+                        <span class="checkmark"></span>
+                        Show "Take your heart" logo
+                    </label>
+                </div>
+                
+                <div id="logo-size">
+                    <label for="logo-size">Scale logo by</label>
+                    <input type="number" name="logo-size" id="logo-size-option" min="0" max="10" value="1" step="0.05" onchange="redrawBg()">
+                    <label for="offset">with an offset of </label>
+                    <input type="number" name="offset" id="logo-offset" min="0" max="1000" value="20" onchange="redrawBg()">
+                    px.
+                </div>
+                
+                <hr>
+
+                <h2>Delay rate</h2>
+                <div id="delay-rate">
+                    <label for="delay-rate">Delay each text being created by</label>
+                    <input type="number" name="delay-rate" min="0" max="1000" value="50" onchange="saveDelay()"> ms
+                    <p><i class="fa fa-info-circle"></i> Increase this value if you feels the page is laggy.</p>
+                </div>
+            </div>
+            
+            <br><hr>
+            
+            <!-- Watermarking -->
+            <div id="wtm-option">
+                <label class="cb-container">
+                    <input type="checkbox" name="showWatermark" id="showWatermark" onclick="showWtm=this.checked" checked onchange="redrawBg()">
+                    <span class="checkmark"></span>
+                    Show watermark to this website
+                </label>
+                <p>Completely optional step, if you want to share this tool and support me, consider leaving this option on.</p>
+            </div>
+
+            <button class="action-btn" onclick="exportCard()"><i class="fa fa-arrow-circle-o-down"></i>Download your card</button>
+
+        </div>
+
+    </div>
+
+    <hr>
+    <p style="text-align:center">Something happened? <a href="https://github.com/skyventuree/p5cc/issues">Report them here.</a></p>
+    <div id="credits">
+        <p>Persona 5 © ATLUS. © SEGA. All rights reserved.</p>
+        <p><a href="https://github.com/skyventuree/p5cc">Persona 5 Calling Card Maker</a> website designed and written by <a href="https://skyventuree.github.io">shigukk</a>.</p>
+        <p>Assets used:</p>
+        <ul>
+            <li><a href="https://www.deviantart.com/elmind/art/Persona-5-Calling-Card-Base-676530039">Persona 5 Calling Card Base</a> by <a href="https://www.deviantart.com/elmind">Elmind</a>.</li>
+            <li><a href="https://lzxhahaha.github.io/persona5/">Persona 5 Style Text Generator</a> by <a href="https://github.com/LzxHahaha">LzxHahaha</a>.<br>
+            Ported and modified by <a href="https://skyventuree.github.io">shigukk</a>.</li>
+            <li>Persona 5 Logo and Assets by ALTUS.</li>
+        </ul>
+        <p>All assets are all under fair use.</p>
+    </div>
+
+    <div id="support">
+        <a href="https://ko-fi.com/shigukk" style="text-decoration:none">
+            <button><i class="fa fa-coffee"></i>Buy me a coffee!</button>
+        </a>
+        - or -
+        <a href="https://github.com/skyventuree/p5cc" style="text-decoration:none">
+            <button><i class="fa fa-github"></i>Check out source code!</button>
+        </a>
+    </div>
+
+    <p id="version">v.<span id="version-number"></span> (<a href="https://github.com/skyventuree/p5cc/blob/main/CHANGELOG.md">See changelog</a>)</p>
+
+    <!-- Main utility and core function-->
+    <script src="version.js"></script>
+    <script src="scripts/editor.js"></script>
+    <script src="scripts/card.js"></script>
+    <script src="scripts/exporter.js"></script>
+
+    <!-- Text generator from Persona 5 Style Text Gen @lzxhahaha -->
+    <script src="scripts/textgen/utils.js"></script>
+    <script src="scripts/textgen/char.js"></script>
+    <script src="scripts/textgen/text.js"></script>
+</body>
+</html>
