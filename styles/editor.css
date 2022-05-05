@@ -1,1 +1,148 @@
-button,input,select,textarea{background-color:#fff;border:2px solid #000;border-radius:0;box-shadow:4px 4px #000;color:#000;padding:5px;outline:0}.options-tab>h2{text-align:center}select{box-sizing:border-box;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;-webkit-appearance:none;-moz-appearance:none}textarea{font-family:sans-serif;box-sizing:border-box;width:100%;height:80%;font-size:32px;text-align:center;resize:none;white-space:pre-wrap}textarea>*{display:table-cell;vertical-align:middle}input[type=number]{max-width:60px}input:disabled{cursor:not-allowed;opacity:.5}#editor{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr;grid-template-areas:"content options";grid-gap:30px;color:#000;padding:0 20px;height:100%;border-radius:10px}#editor>div>h2{text-align:center}@media screen and (max-width:767px),screen and (max-device-width:767px){#editor{grid-template-columns:1fr;grid-template-areas:"content" "options"}}#editor>div>*{margin:10px}.options-tab{display:none}textarea{transform:rotate(-.42deg)}.checkmark{transform:rotate(-5deg)}input[type=number]{transform:rotate(3deg)}.cb-container{display:block;position:relative;padding-left:35px;margin-bottom:12px;cursor:pointer}.cb-container input{position:absolute;opacity:0;cursor:pointer;height:16px;width:16px;top:0;left:0;z-index:1}.checkmark{position:absolute;top:0;left:0;height:16px;width:16px;background-color:#fff;border:2px solid #000;box-shadow:4px 4px #000;color:#000}.checkmark:after{content:"";position:absolute;display:none}.cb-container input:checked~.checkmark:after{display:block}.cb-container .checkmark:after{left:4px;top:0;width:5px;height:10px;border:solid #000;border-width:0 3px 3px 0;-webkit-transform:rotate(45deg);-ms-transform:rotate(45deg);transform:rotate(45deg)}
+/* General */
+input, textarea, button, select {
+    background-color: white;
+    border: 2px solid black;
+    border-radius: 0;
+    box-shadow: 4px 4px black;
+    color: black;
+    padding: 5px;
+    outline: none;
+}
+
+.options-tab>h2 {
+    text-align: center;
+}
+
+select {
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+textarea {
+    font-family: sans-serif;
+    box-sizing: border-box;
+    width: 100%;
+    height: 80%;
+    font-size: 32px;
+    text-align: center;
+    resize: none;
+    white-space: pre-wrap;
+}
+
+textarea > * {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+input[type="number"] {
+    max-width: 60px;
+}
+
+input:disabled  {
+    cursor: not-allowed;
+    opacity: .5;
+}
+
+/* Editors */
+#editor {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    grid-template-areas: "content options";
+    grid-gap: 30px;
+    color: black;
+    padding: 0 20px;
+    height: 100%;
+    border-radius: 10px;
+}
+
+#editor > div > h2 {
+    text-align: center;
+}
+
+@media screen and (max-width:767px),
+screen and (max-device-width:767px) {
+    #editor {
+        grid-template-columns: 1fr;
+        grid-template-areas: "content" "options";
+    }
+}
+
+#editor > div > * {
+    margin: 10px;
+}
+
+/* Tab options */
+.options-tab {
+    display: none;
+}
+
+/* Rotation decorations */
+textarea {
+    transform: rotate(-.42deg);
+}
+
+.checkmark {
+    transform: rotate(-5deg);
+}
+
+input[type=number] {
+    transform: rotate(3deg);
+}
+
+/* checkbox */
+.cb-container {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+}
+
+.cb-container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 16px;
+    width: 16px;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 16px;
+    width: 16px;
+    background-color: white;
+    border: 2px solid black;
+    box-shadow: 4px 4px black;
+    color: black;
+}
+
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+.cb-container input:checked ~ .checkmark:after {
+    display: block;
+}
+
+.cb-container .checkmark:after {
+    left: 4px;
+    top: 0;
+    width: 5px;
+    height: 10px;
+    border: solid black;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}

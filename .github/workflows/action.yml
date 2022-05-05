@@ -1,7 +1,7 @@
 name: Minify Workflow - P5CC
 on:
   push:
-    branches: [ main ]
+    branches: [ prod ]
 
 jobs:
   build:
