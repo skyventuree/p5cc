@@ -2,6 +2,12 @@
 
 ## CHANGELOG
 
+### 3.1.3.12
+
+- Text stroke now turned on by default.
+- Fix cover background.
+- Removed unused code.
+
 ### 3.1.3
 
 - Fixed text stroke issue.

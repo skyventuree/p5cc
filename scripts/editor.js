@@ -2,7 +2,7 @@
 var showLogo = true, 
     showWtm = true, 
     isMiddle = true, 
-    textStroke = false,
+    textStroke = true,
     textStrokeWidth = 6;
 
 // clearing the input field

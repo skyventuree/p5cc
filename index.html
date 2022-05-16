@@ -126,19 +126,6 @@
 
             <!-- Fonts -->
             <div class="options-tab" id="fonts">
-                <!-- WIP
-                <h2>Text color (Experimental)</h2>
-                <div id="text-color-options">
-                    <label for="text-color">Pick color: </label>
-                    <input type="color" name="text-color-picker" id="text-color-picker" value="#ffffff">
-                    <label for="text-color-picker">or use Hex: </label>
-                    <input type="text" name="text-color-hex" id="text-color-hex" placeholder="#ffffff" onchange="redrawText();redrawBg()">
-
-                    <p>(Random red colored letters are currently not affected by this option. This feature is coming soon.)</p>
-
-                </div>
-                <hr>
-            -->
                 <h2>Fonts</h2>
                 <div id="font-options">
                     <label for="font-family">Set family</label>
@@ -156,7 +143,7 @@
                 <h2>Text Stroke</h2>
                 <div id="stroke">
                     <label class="cb-container">
-                        <input type="checkbox" name="stroke" onclick="textStroke=this.checked" onchange="redrawText()">
+                        <input type="checkbox" name="stroke" onclick="textStroke=this.checked" onchange="redrawText()" checked>
                         <span class="checkmark"></span>Stroke text
                     </label>
                     
