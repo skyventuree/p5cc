@@ -2,6 +2,11 @@
 
 ## CHANGELOG
 
+### 3.1.3.15
+
+- Page layout updates.
+- Increase text delay to 100ms by default.
+
 ### 3.1.3.12
 
 - Text stroke now turned on by default.
