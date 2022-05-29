@@ -2,12 +2,16 @@
 
 ## CHANGELOG
 
-### 3.1.3.15
+### 3.1.3.3
+
+- Fix version patch number so they would make sense.
+
+### 3.1.3.2
 
 - Page layout updates.
 - Increase text delay to 100ms by default.
 
-### 3.1.3.12
+### 3.1.3.1
 
 - Text stroke now turned on by default.
 - Fix cover background.
