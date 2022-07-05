@@ -2,6 +2,10 @@
 
 ## CHANGELOG
 
+### 3.1.4
+
+- Hide announcements for mobile users - EMERGENCY UPDATE!!
+
 ### 3.1.3.3
 
 - Fix version patch number so they would make sense.

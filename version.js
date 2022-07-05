@@ -13,8 +13,8 @@ if (VCBOOL === false || VCINFO !== VERSION) {
     document.cookie = `version=${VERSION}; max-age=31536000`;
     document.getElementById('notice-bg').style.display = 'block';
     document.getElementById('notice-bg').addEventListener('click', function() {
-        document.getElementById('notice-bg').style.display = 'none';
     });
 }
 
+document.getElementById('notice-bg').style.display = 'none';
 

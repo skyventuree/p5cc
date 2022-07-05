@@ -92,7 +92,6 @@ function redrawText() {
         }, timer);
         timer += delay;
     });
-    
 }
 
 // check textarea to see if anything changes every 1s to avoid lag
