@@ -2,6 +2,10 @@
 
 ## CHANGELOG
 
+### 3.1.5
+
+- Completely remove notice dialog box.
+
 ### 3.1.4
 
 - Hide announcements for mobile users - EMERGENCY UPDATE!!
