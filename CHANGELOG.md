@@ -2,6 +2,25 @@
 
 ## CHANGELOG
 
+### 3.1.4
+
+- Hide announcements for mobile users - EMERGENCY UPDATE!!
+
+### 3.1.3.3
+
+- Fix version patch number so they would make sense.
+
+### 3.1.3.2
+
+- Page layout updates.
+- Increase text delay to 100ms by default.
+
+### 3.1.3.1
+
+- Text stroke now turned on by default.
+- Fix cover background.
+- Removed unused code.
+
 ### 3.1.3
 
 - Fixed text stroke issue.
