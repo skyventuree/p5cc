@@ -2,6 +2,11 @@
 
 ## CHANGELOG
 
+### 3.1.6
+
+- Fix start up script.
+- Add ads. (I'm sorry)
+
 ### 3.1.5
 
 - Completely remove notice dialog box.
