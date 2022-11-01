@@ -1,10 +1,15 @@
 #card-preview { 
     width: 60wv;
     height: 70vh;
-    padding: 20px;
+    padding-bottom: 20px;
 }
 
-#card-preview>canvas {
+#card-preview>#canvas {
+    position: relative;
+    min-height: 1300px;
+}
+
+#card-preview>#canvas>canvas {
     position: absolute;
     left: 50%;
     transform: translate(-50%, 7vh);
@@ -23,16 +28,22 @@
 @media screen and (max-width:767px),
 screen and (max-device-width:767px) {
     #card-preview {
-        height: 45vh;
+        max-height: 400px;
+    }
+
+    #card-preview>#canvas {
+        display: flex;
+        justify-content: center;
+    }
+    
+    #card-preview>#canvas>canvas {
+        object-fit: contain;
+        height: auto;
+        width: 90vw;
     }
 
     #canvas-bg {
         /* I'm sorry mobile users. */
         display: none;
-    }
-
-    #card-preview>canvas {
-        object-fit: contain;
-        height: 45vh;
     }
 }

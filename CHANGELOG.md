@@ -2,10 +2,12 @@
 
 ## CHANGELOG
 
-### 3.1.6
+### 3.2
 
+- Version bump.
 - Fix start up script.
-- Add ads. (I'm sorry)
+- Fix canvas overflow on mobile layout.
+- Temporary fix broken height on post-fix. The CSS is so messed up that I am too lazy to fix it now.
 
 ### 3.1.5
 
