@@ -35,6 +35,6 @@ _Credits can also be seen on the website along with links to the original site a
 
 ## Version 2 and earlier
 
-Need version 2 of this tool? I got you covered: [p5cc-python](https://github.com/skyventuree/p5cc-python).
+Need version 2 of this tool? I got you covered: [p5cc-python](https://github.com/sorae42/p5cc-python).
 
 

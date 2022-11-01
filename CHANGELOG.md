@@ -2,6 +2,10 @@
 
 ## CHANGELOG
 
+### 3.2.1
+
+- Fix link after my username changes.
+
 ### 3.2
 
 - Version bump.
