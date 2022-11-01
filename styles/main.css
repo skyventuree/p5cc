@@ -66,13 +66,13 @@ a:hover {
 
 #header > #intro-text {
     text-align: right;
+    vertical-align: middle;
     padding-right: 50px;
 }
 
 #header > #intro-icon > img {
-    position: absolute;
-    width: 20%;
-    height: 0 auto;
+    position: relative;
+    width: 40%;
     padding-left: 50px;
 }
 
@@ -110,6 +110,18 @@ a:hover {
 
 .mobile {
     display: none;
+}
+
+#notice {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: white;
+    color: black;
+    text-align: center;
+    text-shadow: none;
+    border: 3px solid black;
+    z-index: 10;
 }
 
 @media screen and (max-width:767px),

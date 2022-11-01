@@ -60,6 +60,12 @@ input:disabled {
         grid-template-columns: 1fr;
         grid-template-areas: "content" "options";
     }
+    
+    textarea {
+        height: 50%;
+        font-size: 20px;
+        padding: 0;
+    }
 }
 #editor > div > * {
     margin: 10px;
