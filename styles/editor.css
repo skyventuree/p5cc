@@ -17,6 +17,7 @@ select {
     box-sizing: border-box;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
+    appearance: none;
     -webkit-appearance: none;
     -moz-appearance: none;
 }
