@@ -2,6 +2,10 @@
 
 ## CHANGELOG
 
+### 3.2.2
+
+- Fix layout, should be fine for now.
+
 ### 3.2.1
 
 - Fix link after my username changes.

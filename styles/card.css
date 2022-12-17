@@ -6,7 +6,6 @@
 
 #card-preview>#canvas {
     position: relative;
-    min-height: 1300px;
 }
 
 #card-preview>#canvas>canvas {
