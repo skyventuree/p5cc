@@ -4,30 +4,7 @@ var showLogo = true,
     isMiddle = true, 
     textStroke = true,
     textStrokeWidth = 6;
-
-// clearing the input field
-let defaults = '<i class="fa fa-times-circle-o"></i>Clear';
-let confirm = '<i class="fa fa-times-circle-o"></i>Are you sure?';
-var confirming = false;
-function clearCard(element) {
     
-    if (confirming) {
-        document.querySelector('#content > textarea').value = '';
-        element.innerHTML = defaults;
-        confirming = false;
-        redrawText();
-        return;
-    }
-
-    element.innerHTML = confirm;
-    confirming = true;
-
-    setTimeout(function() {
-        element.innerHTML = defaults;
-        confirming = false;
-    }, 1500);
-}
-
 // delay function
 function saveDelay() {
     let delay = Number(document.querySelector('#delay-rate > input[type="number"]').value);

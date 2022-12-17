@@ -13,11 +13,11 @@ button:hover {
 }
 
 .action-btn {
-    position: relative;
-    left: 50%;
-    transform: translateX(-50%);
-    width: fit-content;
-    min-width: 50%;
+    display: block;
+    margin: 0 auto;
+    min-width: 42%;
+    min-height: 42px;
+    z-index: 100;
 }
 
 @media screen and (max-width:767px),

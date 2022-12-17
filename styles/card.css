@@ -4,10 +4,6 @@
     padding-bottom: 20px;
 }
 
-#card-preview>#canvas {
-    position: relative;
-}
-
 #card-preview>#canvas>canvas {
     position: absolute;
     left: 50%;
