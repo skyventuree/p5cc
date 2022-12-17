@@ -73,13 +73,13 @@
 
         <div id="content">
             <label for="content">What do you want to write on the calling card?</label>
-            <textarea name="content" cols="30" rows="10" autocomplete="off" placeholder="TAKE YOUR HEART"></textarea>
-            <button class="action-btn" onclick="clearCard(this)"><i class="fa fa-times-circle-o"></i>Clear</button>
+            <textarea name="content" cols="30" autocomplete="off" placeholder="TAKE YOUR HEART"></textarea>
         </div>
 
         <div id="options">
             <hr class="mobile">
 
+            <p style="text-align:center">If nothing seems to happen, click <i class="fa fa-refresh"></i>Refresh.</p>
             <div class="tab-btn" id="tab-handler">
                 <button id="option-default" data-text-option="alignment"><i class="fa fa-arrows" style="transform:rotate(-10deg)"></i></button>
                 <button data-text-option="fonts"><i class="fa fa-font" style="transform:rotate(10deg)"></i></button>
@@ -91,22 +91,22 @@
             <div class="options-tab" id="alignment">
                 <h2>Position and alignments</h2>
                 <div id="text-options">
-                    <label class="cb-container">
-                        <input type="checkbox" name="text-options" onclick="isMiddle=this.checked" onchange="redrawText();redrawBg()" checked>
-                        <span class="checkmark"></span>Put text in the middle
-                    </label>
-    
-                    <label for="text-top">or shift text from top by</label>
-                    <input type="number" name="text-top" id="text-top" min="0" max="2000" value="0" step="5" onchange="redrawText();redrawBg()">
-                    px
-                    <br><br>
-    
                     <label for="text-align"><i class="fa fa-align-center"></i>Align text: </label>
                     <select name="text-align" id="text-align" onchange="redrawBg();redrawText()" style="transform:rotate(-3.5deg)">
                         <option value="left">left</option>
                         <option value="center" selected>center</option>
                         <option value="right">right</option>
                     </select>
+                    <br><br>
+
+                    <label class="cb-container">
+                        <input type="checkbox" name="text-options" onclick="isMiddle=this.checked" onchange="redrawText();redrawBg()" checked>
+                        <span class="checkmark"></span>Vertically aligned text
+                    </label>
+    
+                    <label for="text-top">or shift text from the top by</label>
+                    <input type="number" name="text-top" id="text-top" min="0" max="2000" value="0" step="5" onchange="redrawText();redrawBg()">
+                    px
                 </div>
             </div>
 
@@ -119,8 +119,6 @@
                     <label for="font-size">with size of</label>
                     <input type="number" name="font-size" id="font-size" min="80" max="240" value="120" step="2" onchange="redrawBg()">
                     px.
-                    <p>Font family are supported by the operating system. Custom fonts are not fully supported.</p>
-                    <p>Click <i class="fa fa-refresh"></i>Refresh to see changes.</p>
                 </div>
             </div>
 
@@ -136,7 +134,6 @@
                     <label for="stroke-width">Set width of stroke to</label>
                     <input type="number" name="stroke-width" id="stroke-width" min="5" max="10" value="6" step="1" onchange="textStrokeWidth=this.value">
                     px.
-                    <p>Click <i class="fa fa-refresh"></i>Refresh to see changes.</p>
                 </div>
 
             </div>
@@ -179,20 +176,18 @@
                     <span class="checkmark"></span>
                     Show watermark to this website
                 </label>
-                <p>Completely optional step, if you want to share this tool and support me, consider leaving this option on.</p>
             </div>
-
             <button class="action-btn" onclick="exportCard()"><i class="fa fa-arrow-circle-o-down"></i>Download your card</button>
-
         </div>
-
     </div>
 
     <hr>
+
     <p style="text-align:center">Need to report or suggest something? <a href="https://docs.google.com/forms/d/e/1FAIpQLSfuqntr1v4CW99VYnBIg-5yqX2Vony89CIaRuBrnBBeoI8n7A/viewform?usp=sf_link">Send them here.</a></p>
+    
     <div id="credits">
         <p>Persona 5 © ATLUS. © SEGA. All rights reserved.</p>
-        <p><a href="https://github.com/skyventuree/p5cc">Persona 5 Calling Card Maker</a> website designed and written by <a href="https://sorae42.github.io">shigukk</a>.</p>
+        <p><a href="https://github.com/skyventuree/p5cc">Persona 5 Calling Card Maker</a> website designed and written by <a href="https://sorae42.github.io">sorae42</a>.</p>
         <p>Assets used:</p>
         <ul>
             <li><a href="https://www.deviantart.com/elmind/art/Persona-5-Calling-Card-Base-676530039">Persona 5 Calling Card Base</a> by <a href="https://www.deviantart.com/elmind">Elmind</a>.</li>
@@ -204,16 +199,62 @@
     </div>
 
     <div id="support">
-        <a href="https://ko-fi.com/shigukk" style="text-decoration:none">
-            <button><i class="fa fa-coffee"></i>Buy me a coffee!</button>
-        </a>
-        - or -
-        <a href="https://github.com/skyventuree/p5cc" style="text-decoration:none">
-            <button><i class="fa fa-github"></i>Check out source code!</button>
-        </a>
+        <button>
+            <a href="https://ko-fi.com/shigukk" style="text-decoration:none">
+                <i class="fa fa-coffee"></i>Buy me a coffee!
+            </a>
+        </button>
+    </div>
+    <p class="version">v.<span id="version-number"></span> (<a href="https://github.com/skyventuree/p5cc/blob/main/CHANGELOG.md">See changelog</a>)</p>
+    <p class="version"><a style="opacity:42%;font-size:10px;" onclick="document.getElementById('story').style.display='block';document.getElementById('version-number').innerText='3.the.end'">Let's a have talk, shall we?</a></p>
+    <div style="display:none" id="story">
+        <div id="notice">
+            <h2>P5CC: How did I got here?</h2>
+            <p>
+                I think it would be interesting to tell you why and how I made this, the problem of this tool and why P5CCv4 might not be happening soon. <br>
+                My writing skill is bad, but after all, I just want to tell a story.
+            </p>
+            <p>
+                P5CC was a project written during the time when I'm still a Persona 5 fan. Unfortunately, time flies fast and it changes myself a lot. <br>
+                Initially made in 2020, not so many people used it back then, and it takes a lot of time to make one card, no customization, and the font is just sucks. <br>
+                Since the cards are stored on a server and I have a bad curiousity mind, I'd sometime read the cards and see what people would say. <br>
+                I realized how bad this could go, I decided to go for an alternative route.
+            </p>
+            <p>
+                2022 came, a year and a half since I left the P5 fandom, I discovered a tool to generate P5 styled text. <br>
+                I forked it, and began to work on a full-fledged P5 calling card maker, where everything is done on the browser. <br>
+                No compromise, just you typing some words and have the browser do the hard work. <br>
+                I spent 10 hours, not sleeping to write the whole webpage without any help of framework or library (because I don't know any of them back then). <br>
+                It was painful.
+            </p>
+            <p>
+                In the next few months, I spent quite a time telling people and shamelessly plug the new version for people to use it. <br>
+                I also cleaned up the old server, set up a bunch of redirects, close off the old page so people. <br>
+                Just many days after that, I set up an analytics system to see how many people visited this page, and the results were phenomenal. <br>
+                Could you believe that? <strong>Over 500 visits per day! Worldwide! Used by people, cosplayers, and even Vtubers!</strong><br>
+                That doesn't sounds too much but it means a lot to me.
+            </p>
+            <p>
+                However, the fact that I wrote this site using pure programming languages has caused unnecessary spagetti code that become harder to maintain. <br>
+                It's been days I've tried so hard so keep everything in place just become increasing hard to the point it'd be impossible. <br>
+                And since I left the Persona fandom, that give me zero motivation to keep this project going. <br>
+                That also means there might not be a 4th version of P5CC.
+            </p>
+            <p>
+                So what does it means to P5CC project as a whole? <br>
+                This project may soon become archived and no maintainance will be made after that. <br>
+                There won't be a P5CCv4 as (not) promised. This website will be like this forever. <br>
+            </p>
+            <p>
+                So, thank you for everything. <br>
+                Thanks for visiting, making card and spreading around the words. <br>
+                P5CC would not be possible without people like you.
+            </p>
+            <p>Again, thank you very much for sticking around. Might tomorrow be a better day.</p>
+            <p style="font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;">いつもお世話になっております。</p>
+        </div>
     </div>
 
-    <p id="version">v.<span id="version-number"></span> (<a href="https://github.com/skyventuree/p5cc/blob/main/CHANGELOG.md">See changelog</a>)</p>
 
     <!-- Main utility and core function-->
     <script src="version.js"></script>

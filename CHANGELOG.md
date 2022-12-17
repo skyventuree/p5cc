@@ -2,9 +2,15 @@
 
 ## CHANGELOG
 
-### 3.2.2
+### 3.3
 
-- Fix layout, should be fine for now.
+- Fix layout.
+- Remove background completely.
+- Text should be now clear.
+- Textbox no longer have a fixed height.
+- Removed Clear button.
+- Change how action buttons are styled.
+- ?
 
 ### 3.2.1
 
