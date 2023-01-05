@@ -115,7 +115,7 @@ a:hover {
     display: none;
 }
 
-#notice {
+.notice {
     width: 90%;
     font-size: 16px;
     margin-left: auto;

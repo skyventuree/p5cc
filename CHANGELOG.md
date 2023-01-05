@@ -2,6 +2,10 @@
 
 ## CHANGELOG
 
+### 3.4
+
+- Promotion to YouOkay.
+
 ### 3.3
 
 - Fix layout.
