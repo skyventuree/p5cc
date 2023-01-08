@@ -187,19 +187,18 @@
                     <input type="number" name="delay-rate" min="0" max="1000" value="100" onchange="saveDelay()"> ms
                     <p><i class="fa fa-info-circle"></i> Increase this value if you feels the page is laggy.</p>
                 </div>
+                
+                <!-- Watermarking -->
+                <div id="wtm-option">
+                    <label class="cb-container">
+                        <input type="checkbox" name="showWatermark" id="showWatermark" onclick="showWtm=this.checked" onchange="redrawBg()">
+                        <span class="checkmark"></span>
+                        Show watermark to this website (disabled by default now)
+                    </label>
+                </div>
             </div>
 
             <br>
-            <hr>
-
-            <!-- Watermarking -->
-            <div id="wtm-option">
-                <label class="cb-container">
-                    <input type="checkbox" name="showWatermark" id="showWatermark" onclick="showWtm=this.checked" onchange="redrawBg()">
-                    <span class="checkmark"></span>
-                    Show watermark to this website
-                </label>
-            </div>
             <button class="action-btn" onclick="exportCard()"><i class="fa fa-arrow-circle-o-down"></i>Download your
                 card</button>
         </div>
