@@ -49,10 +49,7 @@
     <base target="_blank" rel="noopener noreferrer">
 
     <div class="notice">
-        <p>YouOkay: Letting your friends and family that you are OK today. Now in alpha development.
-            <br />
-            Give it a chance and see it for yourself.
-        </p>
+        <p>YouOkay: Letting your friends and family that you are OK today. Now in beta development.</p>
         <a href="https://youokay.vercel.app"><button>Visit YouOkay</button></a>
     </div>
     <div id="header">
@@ -198,8 +195,7 @@
             <!-- Watermarking -->
             <div id="wtm-option">
                 <label class="cb-container">
-                    <input type="checkbox" name="showWatermark" id="showWatermark" onclick="showWtm=this.checked"
-                        checked onchange="redrawBg()">
+                    <input type="checkbox" name="showWatermark" id="showWatermark" onclick="showWtm=this.checked" onchange="redrawBg()">
                     <span class="checkmark"></span>
                     Show watermark to this website
                 </label>
@@ -209,11 +205,7 @@
         </div>
     </div>
 
-    <hr>
-
-    <p style="text-align:center">Need to report or suggest something? <a
-            href="https://docs.google.com/forms/d/e/1FAIpQLSfuqntr1v4CW99VYnBIg-5yqX2Vony89CIaRuBrnBBeoI8n7A/viewform?usp=sf_link">Send
-            them here.</a></p>
+    <hr />
 
     <div id="credits">
         <p>Persona 5 © ATLUS. © SEGA. All rights reserved.</p>
@@ -238,73 +230,6 @@
             </a>
         </button>
     </div>
-    <p class="version">v.<span id="version-number"></span> (<a
-            href="https://github.com/skyventuree/p5cc/blob/main/CHANGELOG.md">See changelog</a>)</p>
-    <p class="version"><a style="opacity:42%;font-size:10px;"
-            onclick="document.getElementById('story').style.display='block';document.getElementById('version-number').innerText='3.the.end'">Let's
-            a have talk, shall we?</a></p>
-    <div style="display:none" id="story">
-        <div class="notice">
-            <h2>P5CC: How did I got here?</h2>
-            <p>
-                I think it would be interesting to tell you why and how I made this, the problem of this tool and why
-                P5CCv4 might not be happening soon. <br>
-                My writing skill is bad, but after all, I just want to tell a story.
-            </p>
-            <p>
-                P5CC was a project written during the time when I'm still a Persona 5 fan. Unfortunately, time flies
-                fast and it changes myself a lot. <br>
-                Initially made in 2020, not so many people used it back then, and it takes a lot of time to make one
-                card, no customization, and the font is just sucks. <br>
-                Since the cards are stored on a server and I have a bad curiousity mind, I'd sometime read the cards and
-                see what people would say. <br>
-                I realized how bad this could go, I decided to go for an alternative route.
-            </p>
-            <p>
-                2022 came, a year and a half since I left the P5 fandom, I discovered a tool to generate P5 styled text.
-                <br>
-                I forked it, and began to work on a full-fledged P5 calling card maker, where everything is done on the
-                browser. <br>
-                No compromise, just you typing some words and have the browser do the hard work. <br>
-                I spent 10 hours, not sleeping to write the whole webpage without any help of framework or library
-                (because I don't know any of them back then). <br>
-                It was painful.
-            </p>
-            <p>
-                In the next few months, I spent quite a time telling people and shamelessly plug the new version for
-                people to use it. <br>
-                I also cleaned up the old server, set up a bunch of redirects, close off the old page so people. <br>
-                Just many days after that, I set up an analytics system to see how many people visited this page, and
-                the results were phenomenal. <br>
-                Could you believe that? <strong>Over 500 visits per day! Worldwide! Used by people, cosplayers, and even
-                    Vtubers!</strong><br>
-                That doesn't sounds too much but it means a lot to me.
-            </p>
-            <p>
-                However, the fact that I wrote this site using pure programming languages has caused unnecessary
-                spagetti code that become harder to maintain. <br>
-                It's been days I've tried so hard so keep everything in place just become increasing hard to the point
-                it'd be impossible. <br>
-                And since I left the Persona fandom, that give me zero motivation to keep this project going. <br>
-                That also means there might not be a 4th version of P5CC.
-            </p>
-            <p>
-                So what does it means to P5CC project as a whole? <br>
-                This project may soon become archived and no maintainance will be made after that. <br>
-                There won't be a P5CCv4 as (not) promised. This website will be like this forever. <br>
-            </p>
-            <p>
-                So, thank you for everything. <br>
-                Thanks for visiting, making card and spreading around the words. <br>
-                P5CC would not be possible without people like you.
-            </p>
-            <p>Again, thank you very much for sticking around. Might tomorrow be a better day.</p>
-            <p
-                style="font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;">
-                いつもお世話になっております。</p>
-        </div>
-    </div>
-
 
     <!-- Main utility and core function-->
     <script src="version.js"></script>
