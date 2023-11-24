@@ -29,8 +29,9 @@ class BoxText {
   }
   draw(t) {
     console.log("[BoxText.call::draw()]");
-    const e = t.getContext("2d");
-    if (!e) return void console.error("[BoxText.call::draw()] Failed to load canvas");
+    const e = t.getContext("2d", { willReadFrequently: true });
+    if (!e)
+      return void console.error("[BoxText.call::draw()] Failed to load canvas");
     e.clearRect(0, 0, t.width, t.height);
     const o = this.pendding,
       i = this.gutter;
