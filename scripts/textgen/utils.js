@@ -1,18 +1,21 @@
 function randomOper() {
   return Math.floor(10 * Math.random()) % 2 ? 1 : -1;
 }
+
 function rotateCanvas(t, e, n, a) {
   t.translate(n, a), t.rotate((Math.PI * e) / 180), t.translate(-n, -a);
 }
+
 function letterCanvas(t, e) {
   const n = document.createElement("canvas");
   (n.width = t), (n.height = e);
   const a = n.getContext("2d");
   if (a) return { canvas: n, context: a };
   console.error(
-    "Failed to generate text: failed to create canvas for the letter."
+    "[call::letterCanvas()] Failed to generate text: failed to create canvas for the letter."
   );
 }
+
 function getCharSize(t, e, n = "sans-serif", a = "normal") {
   const { context: o } = letterCanvas(e, e);
   (o.font = `${a} ${e}px ${n}`), (o.textBaseline = "top"), o.fillText(t, 0, 0);

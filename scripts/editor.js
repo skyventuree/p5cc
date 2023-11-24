@@ -12,6 +12,7 @@ function saveDelay() {
     date.setTime(date.getTime() + (365 * 24 * 60 * 60 * 1000));
     let expires = "expires=" + date.toUTCString();
     document.cookie = `delay=${delay};${expires};path=/`;
+    console.log(`[call::saveDelay()] delay:${delay}ms OK`);
 }
 
 window.onload = function() {
