@@ -28,7 +28,6 @@ class BoxText {
         : this.chars.push(new BoxChar(e, i[t], this.fontSize, this.fontFamily));
   }
   draw(t) {
-    console.log("[BoxText.call::draw()]");
     const e = t.getContext("2d", { willReadFrequently: true });
     if (!e)
       return void console.error("[BoxText.call::draw()] Failed to load canvas");
