@@ -70,7 +70,8 @@
 
         <div id="content">
             <label for="content">What do you want to write on the calling card?</label>
-            <textarea name="content" cols="30" autocomplete="off" placeholder="TAKE YOUR HEART"></textarea>
+            <textarea name="content" cols="30" rows="6" placeholder="TAKE YOUR HEART"></textarea>
+            <p>Make a new line by pressing Enter/Return on your keyboard.</p>
         </div>
 
         <div id="options">
@@ -175,17 +176,17 @@
                     <p><i class="fa fa-info-circle"></i> Increase this value if you feels the page is laggy.</p>
                 </div>
                 
-                <!-- Watermarking -->
-                <div id="wtm-option">
-                    <label class="cb-container">
-                        <input type="checkbox" name="showWatermark" id="showWatermark" onclick="showWtm=this.checked" onchange="redrawBg()">
-                        <span class="checkmark"></span>
-                        Show watermark to this website (disabled by default now)
-                    </label>
-                </div>
+            </div>
+            <hr>
+            <!-- Watermarking -->
+            <div id="wtm-option">
+                <label class="cb-container">
+                    <input type="checkbox" name="showWatermark" id="showWatermark" onclick="showWtm=this.checked" onchange="redrawBg()">
+                    <span class="checkmark"></span>
+                    Show watermark to this website
+                </label>
             </div>
 
-            <br>
             <button class="action-btn" onclick="exportCard()"><i class="fa fa-arrow-circle-o-down"></i>Download your
                 card</button>
         </div>
@@ -203,7 +204,7 @@
                     Card Base</a> by <a href="https://www.deviantart.com/elmind">Elmind</a>.</li>
             <li><a href="https://lzxhahaha.github.io/persona5/">Persona 5 Style Text Generator</a> by <a
                     href="https://github.com/LzxHahaha">LzxHahaha</a>.<br>
-                Ported and modified by <a href="https://sorae42.github.io">shigukk</a>.</li>
+                Ported and modified by <a href="https://sorae42.github.io">sorae42</a>.</li>
             <li>Persona 5 Logo and Assets by ALTUS.</li>
         </ul>
         <p>All assets are all under fair use.</p>
