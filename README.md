@@ -1,7 +1,6 @@
 ## Want quick access?
 
 - [English](https://skyventuree.github.io/p5cc/index.html)
-- [中文](https://p5.cocomoe.cn/) - translation from [@XinyuuM](https://github.com/XinyuuM/p5cc)
 
 ## Local seetup
 
