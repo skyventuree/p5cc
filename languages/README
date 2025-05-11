@@ -1,0 +1,16 @@
+Here goes the translation file.
+
+File name must be your language locale (e.g: English - en).
+English is the default translation set. Make sure your translation file is up-to-date and the version are not mismatched.
+
+Meta tag:
+language - The language name in your language.
+literal - The language name in English.
+font - Font to use for this language. (If you want to use a custom font, let me know in the PR).
+version - Version of the translation file.
+author - The person doing this file. Feel free to put multiple people.
+
+Credit:
+Chinese: Lingluoluo
+
+PR to the translation files are only accepted, please don't edit this README file, I will put your GitHub name when merging. Thank you.
