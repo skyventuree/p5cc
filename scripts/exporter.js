@@ -1,5 +1,5 @@
 function exportCard() {
-  console.log("[call::exportCard()] Saving image...");
+  console.log("[exporter::exportCard] Saving image...");
   let e = document.querySelector("#canvas-card"),
     a = document.querySelector("#canvas-text");
   redrawBg();

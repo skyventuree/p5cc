@@ -12,7 +12,7 @@ function letterCanvas(t, e) {
   const a = n.getContext("2d");
   if (a) return { canvas: n, context: a };
   console.error(
-    "[call::letterCanvas()] Failed to generate text: failed to create canvas for the letter."
+    "[utils::letterCanvas] failed to create canvas for the letter."
   );
 }
 
