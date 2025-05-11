@@ -1,0 +1,61 @@
+{
+    "meta": {
+        "language": "English",
+        "literal": "English",
+        "font": "KoreanKRSM",
+        "version": "1"
+    },
+    "title": {
+        "name": "Persona 5 Calling Card Maker",
+        "sub": "For the sake of effortlessly making a calling card.<br>Sending your card to the darkest desire."
+    },
+    "preview": {
+        "refresh": "Refresh"
+    },
+    "editor": {
+        "content": "What do you want to write on the calling card?",
+        "notice": "NOTE: P5CC does not linebreak/resize the text automatically.<br /> Please make a new line by pressing Enter/Return on your keyboard.",
+        "refresh_tip": "If nothing seems to happen, click <i class=\"fa fa-refresh\"></i>Refresh.",
+        "show_watermark": "Show watermark to this website",
+        "download": "Download your card"
+    },
+    "alignments": {
+        "title": "Position and alignments",
+        "options": {
+            "text_align": "Align text: ",
+            "left": "left",
+            "center": "center",
+            "right": "right",
+
+            "vertical_align": "Vertically aligned text",
+            "shift_from_top": "or shift text from the top by"
+        }
+    },
+    "font": {
+        "title": "Fonts",
+        "options": {
+            "family": "Set font-family",
+            "size": "with size of"
+        }
+    },
+    "decorations": {
+        "title": "Text Decorations",
+        "options": {
+            "stroke": "Stroke text",
+            "width": "Set width of stroke to"
+        }
+    },
+    "advanced": {
+        "title": "Advanced options",
+        "options": {
+            "logo_title": "Logo options",
+            "show_logo": "Show \"Take your heart\" logo",
+            "logo_size": "Scale logo by",
+            "logo_offset": "with an offset of ",
+
+            "delay_title": "Delay rate",
+            "delay_desc": "Delay each text being created by",
+            "delay_tip": "Increase this value if you feels the page is laggy."
+        }
+    }
+}
