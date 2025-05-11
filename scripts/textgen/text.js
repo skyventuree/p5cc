@@ -12,7 +12,7 @@ class BoxText {
         i && (this.gutter = i),
         a && (this.pendding = a);
     }
-    t || console.error("Must set text.");
+    t || console.error("[text::anonymous] Must set text.");
     const o = t.split(""),
       i = new Array(o.length).fill(CHAR_MODE.WHITE);
     i[0] = CHAR_MODE.FIRST;
@@ -30,7 +30,7 @@ class BoxText {
   draw(t) {
     const e = t.getContext("2d", { willReadFrequently: true });
     if (!e)
-      return void console.error("[BoxText.call::draw()] Failed to load canvas");
+      return void console.error("[text::draw] Failed to load canvas");
     e.clearRect(0, 0, t.width, t.height);
     const o = this.pendding,
       i = this.gutter;

@@ -17,7 +17,7 @@ logo.onload = redrawBg;
 // for the card canvas
 function redrawBg() {
     // asset calculations
-    console.log(`[call::redrawBg()] showLogo:${showLogo} showWtm:${showWtm}`);
+    console.log(`[card::redrawBg] showLogo:${showLogo} showWtm:${showWtm}`);
 
     const logoScale = document.querySelector('#logo-size-option').value;
     const logoOffset = document.querySelector('#logo-offset').value;
@@ -61,8 +61,8 @@ function redrawText() {
     const value = (textInput.value || 'TAKE YOUR HEART').trim();
     const splitValue = value.split('\n');
     
-    console.log(`[call::redrawText()] textInput:${value}`);
-    console.log(`[call::redrawText()] delay:${delay} fontSize:${fontSize} fontFamily:${fontFamily}`);
+    console.log(`[card::redrawText] textInput:${value}`);
+    console.log(`[card::redrawText] delay:${delay} fontSize:${fontSize} fontFamily:${fontFamily}`);
 
     // another canvas so making multiline text is easier
     lineCanvas.width = canvasText.width;
@@ -92,7 +92,7 @@ function redrawText() {
             textCtx.drawImage(lineCanvas, 0, lineHeight + middleOffset + topOffset);
     
             lineHeight = Math.floor(heightOffset) || lineHeight;
-            console.log(`[call::redrawText()] lineHeight:${lineHeight} middleOffset:${middleOffset} heightOffset:${heightOffset}`);
+            console.log(`[card::redrawText] lineHeight:${lineHeight} middleOffset:${middleOffset} heightOffset:${heightOffset}`);
         }, timer);
         timer += delay;
     });

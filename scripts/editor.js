@@ -12,11 +12,11 @@ function saveDelay() {
     date.setTime(date.getTime() + (365 * 24 * 60 * 60 * 1000));
     let expires = "expires=" + date.toUTCString();
     document.cookie = `delay=${delay};${expires};path=/`;
-    console.log(`[call::saveDelay()] delay:${delay}ms OK`);
+    console.log(`[editor::saveDelay] delay:${delay}ms OK`);
 }
 
 window.onload = function() {
-    console.info("Getting cookie value...")
+    console.info("[editor::onLoad] Getting cookie value...")
     let delay = document.cookie.replace(/(?:(?:^|.*;\s*)delay\s*\=\s*([^;]*).*$)|^.*$/, "$1");
     if (delay) {
         document.querySelector('#delay-rate > input[type="number"]').value = delay;
