@@ -71,7 +71,7 @@
         <div id="content">
             <label for="content">What do you want to write on the calling card?</label>
             <textarea name="content" cols="30" rows="6" placeholder="TAKE YOUR HEART"></textarea>
-            <p>Make a new line by pressing Enter/Return on your keyboard.</p>
+            <p>NOTE: P5CC does not linebreak/resize the text automatically.<br /> Please make a new line by pressing Enter/Return on your keyboard.</p>
         </div>
 
         <div id="options">
@@ -172,7 +172,7 @@
                 <h2>Delay rate</h2>
                 <div id="delay-rate">
                     <label for="delay-rate">Delay each text being created by</label>
-                    <input type="number" name="delay-rate" min="0" max="1000" value="100" onchange="saveDelay()"> ms
+                    <input type="number" name="delay-rate" min="0" max="1000" value="1000" onchange="saveDelay()"> ms
                     <p><i class="fa fa-info-circle"></i> Increase this value if you feels the page is laggy.</p>
                 </div>
                 
