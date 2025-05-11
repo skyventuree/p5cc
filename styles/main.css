@@ -25,7 +25,6 @@ body {
 
 body, div {
     color: white;
-    text-shadow: 2px 2px black;
     -webkit-text-stroke-width: .5px;
     -webkit-text-stroke-color: black;
 }
@@ -48,7 +47,6 @@ hr {
 
 a {
     color: white;
-    text-shadow: 2px 2px black;
     -webkit-text-stroke-width: .5px;
     -webkit-text-stroke-color: black;
 }
