@@ -54,16 +54,45 @@ const canvasText = document.getElementById("canvas-text");
 const textCtx = canvasText.getContext('2d');
 let box;
 
-function redrawText() {
-    const delay = Number(document.querySelector('#delay-rate > input[type="number"]').value);
-    const fontSize = Math.min(Math.abs(+fontSizeInput.value || 120));
-    const fontFamily = fontFamilyInput.value || 'sans-serif';
-    const value = (textInput.value || 'TAKE YOUR HEART').trim();
+// テキストと設定の状態を保持
+let lastState = {
+    text: '',
+    fontSize: 0,
+    fontFamily: '',
+    delay: 0,
+    topOffset: 0,
+    isMiddle: true
+};
+
+function redrawText(force = false) {
+    let delay = Number(document.querySelector('#delay-rate > input[type="number"]').value);
+    let fontSize = Math.min(Math.abs(+fontSizeInput.value || 120));
+    let fontFamily = fontFamilyInput.value || 'sans-serif';
+    let value = (textInput.value || 'TAKE YOUR HEART').trim();
+    let topOffset = Number(document.querySelector('#text-top').value);
+
+    // 状態が変更されたかチェック
+    const currentState = {
+        text: value,
+        fontSize: fontSize,
+        fontFamily: fontFamily,
+        delay: delay,
+        topOffset: topOffset,
+        isMiddle: isMiddle
+    };
+
+    // forceがtrueの場合は常に再描画、そうでない場合は変更があった時のみ再描画
+    if (!force && JSON.stringify(lastState) === JSON.stringify(currentState)) {
+        return;
+    }
+
+    console.log(`[card::redrawText] ${force ? 'Force redraw' : 'Changes detected'}, redrawing text...`);
+
+    // 状態を更新
+    lastState = currentState;
+
     const splitValue = value.split('\n');
     
-    console.log(`[card::redrawText] textInput:${value}`);
-    console.log(`[card::redrawText] delay:${delay} fontSize:${fontSize} fontFamily:${fontFamily}`);
-
     // another canvas so making multiline text is easier
     lineCanvas.width = canvasText.width;
     lineCanvas.height = fontSize * 2.2;
@@ -72,7 +101,6 @@ function redrawText() {
 
     // they are all offset, just a different name and purpose
     let lineHeight = 0, middleOffset = 0, heightOffset = 0;
-    let topOffset = Number(document.querySelector('#text-top').value);
     let timer = 0;
 
     splitValue.forEach(line => {
@@ -98,10 +126,21 @@ function redrawText() {
     });
 }
 
-// check textarea to see if anything changes every 1s to avoid lag
+// インターバルチェックを改善
 const checkText = setInterval(() => {
-    if (textInput.value !== textInput.lastValue) {
-        textInput.lastValue = textInput.value;
+    const currentText = textInput.value;
+    const currentFontSize = fontSizeInput.value;
+    const currentFontFamily = fontFamilyInput.value;
+    const currentDelay = document.querySelector('#delay-rate > input[type="number"]').value;
+    const currentTopOffset = document.querySelector('#text-top').value;
+
+    // いずれかの値が変更された場合のみredrawTextを呼び出す
+    if (currentText !== lastState.text ||
+        currentFontSize !== lastState.fontSize ||
+        currentFontFamily !== lastState.fontFamily ||
+        currentDelay !== lastState.delay ||
+        currentTopOffset !== lastState.topOffset ||
+        isMiddle !== lastState.isMiddle) {
         redrawText();
     }
 }, 1000);
