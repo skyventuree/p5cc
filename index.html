@@ -44,8 +44,8 @@
             <img src="assets/icon.png">
         </div>
         <div id="intro-text">
-            <h2>Persona 5 Calling Card Maker</h2>
-            <p>For the sake of effortlessly making a calling card.<br>
+            <h2 data-i18n="title.name">Persona 5 Calling Card Maker</h2>
+            <p data-i18n="title.sub">For the sake of effortlessly making a calling card.<br>
                 Sending your card to the darkest desire.</p>
         </div>
     </div>
@@ -61,7 +61,7 @@
     </div>
 
     <button id="refresh" class="action-btn" onclick="redrawBg();redrawText()"><i
-            class="fa fa-refresh"></i>Refresh</button>
+            class="fa fa-refresh"></i><span>Refresh</span></button>
 
     <hr>
 
@@ -69,16 +69,16 @@
     <div id="editor">
 
         <div id="content">
-            <label for="content">What do you want to write on the calling card?</label>
+            <label for="content" data-i18n="editor.content">What do you want to write on the calling card?</label>
             <textarea name="content" cols="30" rows="6" placeholder="TAKE YOUR HEART"></textarea>
-            <p>NOTE: P5CC does not linebreak/resize the text automatically.<br /> Please make a new line by pressing
+            <p data-i18n="editor.notice">NOTE: P5CC does not linebreak/resize the text automatically.<br /> Please make a new line by pressing
                 Enter/Return on your keyboard.</p>
         </div>
 
         <div id="options">
             <hr class="mobile">
 
-            <p style="text-align:center">If nothing seems to happen, click <i class="fa fa-refresh"></i>Refresh.</p>
+            <p style="text-align:center" data-i18n="editor.refresh_tip">If nothing seems to happen, click <i class="fa fa-refresh"></i>Refresh.</p>
             <div class="tab-btn" id="tab-handler">
                 <button id="option-default" data-text-option="alignment"><i class="fa fa-arrows"
                         style="transform:rotate(-10deg)"></i></button>
@@ -90,24 +90,25 @@
 
             <!-- Alignments -->
             <div class="options-tab" id="alignment">
-                <h2>Position and alignments</h2>
+                <h2 data-i18n="alignments.title">Position and alignments</h2>
                 <div id="text-options">
-                    <label for="text-align"><i class="fa fa-align-center"></i>Align text: </label>
+                    <label for="text-align" data-i18n="alignments.options.text_align"><i class="fa fa-align-center"></i>Align text: </label>
                     <select name="text-align" id="text-align" onchange="redrawBg();redrawText()"
                         style="transform:rotate(-3.5deg)">
-                        <option value="left">left</option>
-                        <option value="center" selected>center</option>
-                        <option value="right">right</option>
+                        <option value="left" data-i18n="alignments.options.left">left</option>
+                        <option value="center" data-i18n="alignments.options.center" selected>center</option>
+                        <option value="right" data-i18n="alignments.options.right">right</option>
                     </select>
                     <br><br>
 
                     <label class="cb-container">
                         <input type="checkbox" name="text-options" onclick="isMiddle=this.checked"
                             onchange="redrawText();redrawBg()" checked>
-                        <span class="checkmark"></span>Vertically aligned text
+                        <span class="checkmark"></span>
+                        <span data-i18n="alignments.options.vertical_align">Vertically aligned text</span>
                     </label>
 
-                    <label for="text-top">or shift text from the top by</label>
+                    <label for="text-top" data-i18n="alignments.options.shift_from_top">or shift text from the top by</label>
                     <input type="number" name="text-top" id="text-top" min="0" max="2000" value="0" step="5"
                         onchange="redrawText();redrawBg()">
                     px
@@ -148,7 +149,7 @@
 
             <!-- Advanced -->
             <div class="options-tab" id="advanced">
-                <h2>Logo options</h2>
+                <h2 data-i18n="advanced.options.logo_title">Logo options</h2>
                 <div id="show-logo">
                     <label class="cb-container">
                         <input type="checkbox" name="show-logo" onclick="showLogo=this.checked" onchange="redrawBg()"
@@ -170,11 +171,11 @@
 
                 <hr>
 
-                <h2>Delay rate</h2>
+                <h2 data-i18n="advanced.options.delay_title">Delay rate</h2>
                 <div id="delay-rate">
-                    <label for="delay-rate">Delay each text being created by</label>
+                    <label for="delay-rate" data-i18n="advanced.options.delay_desc">Delay each text being created by</label>
                     <input type="number" name="delay-rate" min="0" max="1000" value="1000" onchange="saveDelay()"> ms
-                    <p><i class="fa fa-info-circle"></i> Increase this value if you feels the page is laggy.</p>
+                    <p><i class="fa fa-info-circle"></i> <span data-i18n="advanced.options.delay_tip">Increase this value if you feels the page is laggy.</span></p>
                 </div>
 
             </div>
@@ -230,6 +231,9 @@
     <script src="scripts/textgen/utils.js"></script>
     <script src="scripts/textgen/char.js"></script>
     <script src="scripts/textgen/text.js"></script>
+
+    <!-- Then run i18n script -->
+    <script src="scripts/i18n.js"></script>
 </body>
 
 </html>

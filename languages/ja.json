@@ -1,0 +1,61 @@
+{
+    "meta": {
+        "language": "日本語",
+        "literal": "Japanese",
+        "font": "Arial",
+        "version": "1"
+    },
+    "title": {
+        "name": "ペルソナ5 予告状メーカー",
+        "sub": "簡単に予告状を作成できます。<br>闇の欲望に向けて、あなたの予告状を送りましょう。"
+    },
+    "preview": {
+        "refresh": "更新"
+    },
+    "editor": {
+        "content": "予告状に何を書きますか？",
+        "notice": "注意：P5CCは自動的に改行/テキストサイズの調整を行いません。<br />改行したい場合は、Enter/Returnキーを押してください。",
+        "refresh_tip": "変更が反映されない場合は、<i class=\"fa fa-refresh\"></i>更新をクリックしてください。",
+        "show_watermark": "このウェブサイトのウォーターマークを表示",
+        "download": "カードダウンロード"
+    },
+    "alignments": {
+        "title": "位置とアライメント",
+        "options": {
+            "text_align": "テキストの配置：",
+            "left": "左揃え",
+            "center": "中央揃え",
+            "right": "右揃え",
+
+            "vertical_align": "垂直方向の配置",
+            "shift_from_top": "または上からの距離"
+        }
+    },
+    "font": {
+        "title": "フォント",
+        "options": {
+            "family": "フォントファミリー",
+            "size": "フォントサイズ"
+        }
+    },
+    "decorations": {
+        "title": "テキストの装飾",
+        "options": {
+            "stroke": "テキストの縁取り",
+            "width": "縁取りの太さ"
+        }
+    },
+    "advanced": {
+        "title": "詳細設定",
+        "options": {
+            "logo_title": "ロゴオプション",
+            "show_logo": "「心を奪う」ロゴを表示",
+            "logo_size": "ロゴのサイズを",
+            "logo_offset": "オフセット：",
+
+            "delay_title": "遅延レート",
+            "delay_desc": "テキスト生成の遅延を",
+            "delay_tip": "ページの動作が重い場合は、この値を大きくしてください。"
+        }
+    }
+}
