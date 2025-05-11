@@ -1,0 +1,62 @@
+{
+    "meta": {
+        "language": "English",
+        "literal": "Chinese",
+        "font": "Arial",
+        "version": "1",
+        "author": "Lingluoluo"
+    },
+    "title": {
+        "name": "女神异闻录5 预告信生成器",
+        "sub": "制作一张属于你的预告信.<br>将这份预告信送给你想偷心的人吧."
+    },
+    "preview": {
+        "refresh": "刷新"
+    },
+    "editor": {
+        "content": "你想在预告信上写什么？",
+        "notice": "注意：P5CC 不会自动换行/调整文本大小。<br /> 请按键盘上的 Enter/Return 键换行。",
+        "refresh_tip": "如果上面没反应 <i class=\"fa fa-refresh\"></i>刷个新？",
+        "show_watermark": "展示本网页的水印",
+        "download": "下载你的预告信"
+    },
+    "alignments": {
+        "title": "位置/对齐",
+        "options": {
+            "text_align": "对齐: ",
+            "left": "左对齐",
+            "center": "中心对齐",
+            "right": "右对齐",
+
+            "vertical_align": "垂直对齐文本",
+            "shift_from_top": "或者将文本从上到下移位"
+        }
+    },
+    "font": {
+        "title": "字体",
+        "options": {
+            "family": "字体 (font-family)",
+            "size": "字号"
+        }
+    },
+    "decorations": {
+        "title": "边框",
+        "options": {
+            "stroke": "边框",
+            "width": "边框设置为"
+        }
+    },
+    "advanced": {
+        "title": "Advanced options",
+        "options": {
+            "logo_title": "Logo设置",
+            "show_logo": "展示 \"Take your heart\" logo",
+            "logo_size": "缩放logo",
+            "logo_offset": "，并且偏移 ",
+
+            "delay_title": "文字动画延迟",
+            "delay_desc": "文字动画延迟",
+            "delay_tip": "如果您感觉网页有点卡，请增大此值。"
+        }
+    }
+}
