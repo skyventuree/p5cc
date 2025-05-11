@@ -5,7 +5,8 @@
 }
 
 * {
-    font-family: 'KoreanKRSM', sans-serif;
+    font-family: var(--font-family), sans-serif;
+    font-weight: bold;
 }
 
 html,
