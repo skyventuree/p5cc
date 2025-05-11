@@ -1,6 +1,6 @@
 ## Want quick access?
 
-- [English](https://skyventuree.github.io/p5cc/index.html)
+- [Open Tool](https://skyventuree.github.io/p5cc/index.html)
 
 ## Local seetup
 
@@ -10,6 +10,8 @@
 3. Run the webpage by typing `node app.js` in the command prompt/terminal. P5CC will be available at `http://localhost:4200/`
 
 ## Credits
+
+Language contributors: See `languages/README`.
 
 Persona 5 © ATLUS. © SEGA. 
 
