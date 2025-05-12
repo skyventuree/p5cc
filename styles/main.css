@@ -21,13 +21,11 @@ body {
     font-size: 18px;
     overflow-x: hidden;
     background-size: cover;
-    background-color: #FF0405; /* fallback */
+    background-color: #FF0405;
 }
 
 body, div {
     color: white;
-    -webkit-text-stroke-width: .5px;
-    -webkit-text-stroke-color: black;
 }
 
 h2,
@@ -125,6 +123,21 @@ a:hover {
     text-shadow: none;
     border: 3px solid black;
     z-index: 10;
+}
+
+#lang-options {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#lang-options > select {
+    width: 69%;
+}
+
+#lang-options > select > option {
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 @media screen and (max-width:767px),

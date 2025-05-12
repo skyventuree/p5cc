@@ -71,14 +71,16 @@
         <div id="content">
             <label for="content" data-i18n="editor.content">What do you want to write on the calling card?</label>
             <textarea name="content" cols="30" rows="6" placeholder="TAKE YOUR HEART"></textarea>
-            <p data-i18n="editor.notice">NOTE: P5CC does not linebreak/resize the text automatically.<br /> Please make a new line by pressing
+            <p data-i18n="editor.notice">NOTE: P5CC does not linebreak/resize the text automatically.<br /> Please make
+                a new line by pressing
                 Enter/Return on your keyboard.</p>
         </div>
 
         <div id="options">
             <hr class="mobile">
 
-            <p style="text-align:center" data-i18n="editor.refresh_tip">If nothing seems to happen, click <i class="fa fa-refresh"></i>Refresh.</p>
+            <p style="text-align:center" data-i18n="editor.refresh_tip">If nothing seems to happen, click <i
+                    class="fa fa-refresh"></i>Refresh.</p>
             <div class="tab-btn" id="tab-handler">
                 <button id="option-default" data-text-option="alignment"><i class="fa fa-arrows"
                         style="transform:rotate(-10deg)"></i></button>
@@ -86,13 +88,16 @@
                 <button data-text-option="decoration"><i class="fa fa-paint-brush"
                         style="transform:rotate(-10deg)"></i></button>
                 <button data-text-option="advanced"><i class="fa fa-cog" style="transform:rotate(10deg)"></i></button>
+                <button data-text-option="languages"><i class="fa fa-globe"
+                        style="transform:rotate(-10deg)"></i></button>
             </div>
 
             <!-- Alignments -->
             <div class="options-tab" id="alignment">
                 <h2 data-i18n="alignments.title">Position and alignments</h2>
                 <div id="text-options">
-                    <label for="text-align" data-i18n="alignments.options.text_align"><i class="fa fa-align-center"></i>Align text: </label>
+                    <label for="text-align" data-i18n="alignments.options.text_align"><i
+                            class="fa fa-align-center"></i>Align text: </label>
                     <select name="text-align" id="text-align" onchange="redrawBg();redrawText()"
                         style="transform:rotate(-3.5deg)">
                         <option value="left" data-i18n="alignments.options.left">left</option>
@@ -108,7 +113,8 @@
                         <span data-i18n="alignments.options.vertical_align">Vertically aligned text</span>
                     </label>
 
-                    <label for="text-top" data-i18n="alignments.options.shift_from_top">or shift text from the top by</label>
+                    <label for="text-top" data-i18n="alignments.options.shift_from_top">or shift text from the top
+                        by</label>
                     <input type="number" name="text-top" id="text-top" min="0" max="2000" value="0" step="5"
                         onchange="redrawText();redrawBg()">
                     px
@@ -117,7 +123,7 @@
 
             <!-- Fonts -->
             <div class="options-tab" id="fonts">
-                <h2>Fonts</h2>
+                <h2 data-i18n="font.title">Fonts</h2>
                 <div id="font-options">
                     <label for="font-family">Set family</label>
                     <input type="text" name="font-family" id="font-family" value="sans-serif" placeholder="sans-serif"
@@ -126,17 +132,20 @@
                     <input type="number" name="font-size" id="font-size" min="80" max="240" value="120" step="2"
                         onchange="redrawBg()">
                     px.
+                    <p><i class="fa fa-info-circle"></i> <span data-i18n="font.options.family_tip">
+                        Font family are fonts that are installed on your computer.
+                    </span></p>
                 </div>
             </div>
 
             <!-- Decorations -->
             <div class="options-tab" id="decoration">
-                <h2>Text Stroke</h2>
+                <h2 data-i18n="decorations.title">Text Decorations</h2>
                 <div id="stroke">
                     <label class="cb-container">
                         <input type="checkbox" name="stroke" onclick="textStroke=this.checked" onchange="redrawText()"
                             checked>
-                        <span class="checkmark"></span>Stroke text
+                        <span class="checkmark"></span><label for="stroke">Stroke text</label>
                     </label>
 
                     <label for="stroke-width">Set width of stroke to</label>
@@ -173,12 +182,26 @@
 
                 <h2 data-i18n="advanced.options.delay_title">Delay rate</h2>
                 <div id="delay-rate">
-                    <label for="delay-rate" data-i18n="advanced.options.delay_desc">Delay each text being created by</label>
+                    <label for="delay-rate" data-i18n="advanced.options.delay_desc">Delay each text being created
+                        by</label>
                     <input type="number" name="delay-rate" min="0" max="1000" value="1000" onchange="saveDelay()"> ms
-                    <p><i class="fa fa-info-circle"></i> <span data-i18n="advanced.options.delay_tip">Increase this value if you feels the page is laggy.</span></p>
+                    <p><i class="fa fa-info-circle"></i> <span data-i18n="advanced.options.delay_tip">Increase this
+                            value if you feels the page is laggy.</span></p>
                 </div>
-
             </div>
+
+
+            <!-- Language -->
+            <div class="options-tab" id="languages">
+                <h2 data-i18n="languages.title">Interface Language</h2>
+                <div id="lang-options">
+                    <select name="lang-select" id="lang-select" onchange="changeLang()" multiple>
+                        <!-- Auto Load from lang.json -->
+                    </select>
+                </div>
+                <p style="text-align: center;">Translator: <span data-i18n="meta.author">{meta.author}</span></p>
+            </div>
+
             <hr>
             <!-- Watermarking -->
             <div id="wtm-option">

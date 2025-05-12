@@ -36,7 +36,8 @@
         "title": "Fonts",
         "options": {
             "family": "Set font-family",
-            "size": "with size of"
+            "size": "with size of",
+            "family_tip": "Font family are fonts that are installed on your computer."
         }
     },
     "decorations": {
@@ -58,5 +59,9 @@
             "delay_desc": "Delay each text being created by",
             "delay_tip": "Increase this value if you feels the page is laggy."
         }
+    },
+    "languages": {
+        "title": "Interface Language",
+        "not_updated": "English has not been fully updated for the current version of P5CC!<br> You may contribute updated version <a href=\"https://github.com/skyventuree/p5cc/tree/main/languages\">here</a>."
     }
 }
