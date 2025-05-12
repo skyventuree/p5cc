@@ -36,7 +36,8 @@
         "title": "字体",
         "options": {
             "family": "字体 (font-family)",
-            "size": "字号"
+            "size": "字号",
+            "family_tip": "字体是安装在你电脑上的字体."
         }
     },
     "decorations": {
@@ -58,5 +59,9 @@
             "delay_desc": "文字动画延迟",
             "delay_tip": "如果您感觉网页有点卡，请增大此值。"
         }
+    },
+    "languages": {
+        "title": "UI语言",
+        "not_updated": "韩国尚未完全更新当前版本的 P5CC!<br> 您可以在<a href=\"https://github.com/skyventuree/p5cc/tree/main/languages\">此处</a>贡献更新版本。"
     }
 }

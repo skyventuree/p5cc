@@ -1,0 +1,67 @@
+{
+    "meta": {
+        "language": "한국어",
+        "literal": "Korean",
+        "font": "KoreanKRSM",
+        "version": "1",
+        "author": "sorae42"
+    },
+    "title": {
+        "name": "페르소나 5 예고장 메이커",
+        "sub": "손쉽게 예고장을 만들기 위해.<br>당신의 카드를 가장 어두운 욕망에게 보내세요."
+    },
+    "preview": {
+        "refresh": "새로고침"
+    },
+    "editor": {
+        "content": "예고장에 무엇을 쓰고 싶으신가요?",
+        "notice": "참고: P5CC는 자동으로 줄바꿈/텍스트 크기를 조절하지 않습니다.<br />키보드의 Enter/Return 키를 눌러 새 줄을 만드세요.",
+        "refresh_tip": "변화가 없어 보인다면, <i class=\"fa fa-refresh\"></i>새로고침을 클릭하세요.",
+        "show_watermark": "이 웹사이트의 워터마크 표시",
+        "download": "예고장 다운로드"
+    },
+    "alignments": {
+        "title": "위치 및 정렬",
+        "options": {
+            "text_align": "텍스트 정렬: ",
+            "left": "왼쪽",
+            "center": "가운데",
+            "right": "오른쪽",
+
+            "vertical_align": "수직 정렬된 텍스트",
+            "shift_from_top": "또는 위에서부터 텍스트 이동"
+        }
+    },
+    "font": {
+        "title": "글꼴",
+        "options": {
+            "family": "글꼴 설정",
+            "size": "크기 설정",
+            "family_tip": "글꼴 패밀리는 컴퓨터에 설치된 글꼴입니다."
+        }
+    },
+    "decorations": {
+        "title": "텍스트 장식",
+        "options": {
+            "stroke": "텍스트 외곽선",
+            "width": "외곽선 두께 설정"
+        }
+    },
+    "advanced": {
+        "title": "고급 설정",
+        "options": {
+            "logo_title": "로고 옵션",
+            "show_logo": "\"Take your heart\" 로고 표시",
+            "logo_size": "로고 크기 조절",
+            "logo_offset": "오프셋 설정",
+
+            "delay_title": "지연 속도",
+            "delay_desc": "텍스트 생성 지연 시간",
+            "delay_tip": "페이지가 느리게 느껴진다면 이 값을 늘리세요."
+        }
+    },
+    "languages": {
+        "title": "UI 언어",
+        "not_updated": "현재 P5CC의 한국어 버전이 완전히 업데이트되지 않았습니다!<br> 업데이트된 버전은 <a href=\"https://github.com/skyventuree/p5cc/tree/main/languages\">여기에서 기여하실 수 있습니다."
+    }
+}

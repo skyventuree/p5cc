@@ -27,7 +27,6 @@
             "left": "左揃え",
             "center": "中央揃え",
             "right": "右揃え",
-
             "vertical_align": "垂直方向の配置",
             "shift_from_top": "または上からの距離"
         }
@@ -36,7 +35,8 @@
         "title": "フォント",
         "options": {
             "family": "フォントファミリー",
-            "size": "フォントサイズ"
+            "size": "フォントサイズ",
+            "family_tip": "フォントファミリーは、コンピュータにインストールされているフォントです。"
         }
     },
     "decorations": {
@@ -53,10 +53,13 @@
             "show_logo": "「心を奪う」ロゴを表示",
             "logo_size": "ロゴのサイズを",
             "logo_offset": "オフセット：",
-
             "delay_title": "遅延レート",
             "delay_desc": "テキスト生成の遅延を",
             "delay_tip": "ページの動作が重い場合は、この値を大きくしてください。"
         }
+    },
+    "languages": {
+        "title": "UI言語",
+        "not_updated": "P5CCの現在のバージョンでは、日本語は完全には更新されていません!<br> 更新版は<a href=\"https://github.com/skyventuree/p5cc/tree/main/languages\">こちら</a>から投稿できます。"
     }
 }

@@ -1,10 +1,11 @@
 const VERSION = 1;
 let language = "en";
 
-function initLanguage() {
+async function initLanguage() {
     console.info("[i18n::initLanguage] Initializing language settings...");
-    const langCookie = document.cookie.replace(/(?:(?:^|.*;\s*)lang\s*\=\s*([^;]*).*$)|^.*$/, "$1");
     
+    // クッキーから言語設定を取得
+    const langCookie = document.cookie.replace(/(?:(?:^|.*;\s*)lang\s*\=\s*([^;]*).*$)|^.*$/, "$1");
     if (langCookie) {
         language = langCookie;
     } else {
@@ -12,6 +13,42 @@ function initLanguage() {
         const date = new Date();
         date.setTime(date.getTime() + (365 * 24 * 60 * 60 * 1000));
         document.cookie = `lang=${language};expires=${date.toUTCString()};path=/`;
+    }
+
+    // 言語リストを読み込んでセレクトボックスを初期化
+    try {
+        const response = await fetch('./languages/lang.json');
+        if (!response.ok) {
+            throw new Error('Failed to load language list');
+        }
+        const langList = await response.json();
+        
+        const select = document.querySelector('#lang-select');
+        if (select) {
+            for (const [code, name] of Object.entries(langList)) {
+                const option = document.createElement('option');
+                option.value = code;
+                option.textContent = name;
+                option.selected = code === language;
+                select.appendChild(option);
+            }
+            
+            // イベントリスナーを追加
+            select.addEventListener('change', changeLang);
+        }
+    } catch (error) {
+        console.error("[i18n::initLanguage] Failed to load language list:", error);
+    }
+}
+
+function changeLang() {
+    const select = document.querySelector('#lang-select');
+    if (select) {
+        const newLang = select.value;
+        const date = new Date();
+        date.setTime(date.getTime() + (365 * 24 * 60 * 60 * 1000));
+        document.cookie = `lang=${newLang};expires=${date.toUTCString()};path=/`;
+        window.location.reload();
     }
 }
 
@@ -39,11 +76,22 @@ async function loadLanguage() {
         // data-i18n属性を持つ要素の翻訳
         document.querySelectorAll('[data-i18n]').forEach(element => {
             const key = element.getAttribute('data-i18n');
-            const translation = key.split('.').reduce((obj, i) => obj[i], langData);
-            
-            if (translation) {
-                const hasHtmlTags = /<[a-z][\s\S]*>/i.test(translation);
-                element.innerHTML = hasHtmlTags ? translation : translation;
+            try {
+                const translation = key.split('.').reduce((obj, i) => {
+                    if (obj && typeof obj === 'object') {
+                        return obj[i];
+                    }
+                    return undefined;
+                }, langData);
+                
+                if (translation) {
+                    const hasHtmlTags = /<[a-z][\s\S]*>/i.test(translation);
+                    element.innerHTML = hasHtmlTags ? translation : translation;
+                } else {
+                    console.warn(`[i18n::loadLanguage] Translation not found for key: ${key}`);
+                }
+            } catch (error) {
+                console.error(`[i18n::loadLanguage] Failed to translate element with key: ${key}`, error);
             }
         });
 
@@ -73,6 +121,7 @@ async function loadLanguage() {
                 "text-top": langData.alignments.options.shift_from_top,
                 "font-family": langData.font.options.family,
                 "font-size": langData.font.options.size,
+                "stroke": langData.decorations.options.stroke,
                 "stroke-width": langData.decorations.options.width,
                 "logo-size": langData.advanced.options.logo_size,
                 "offset": langData.advanced.options.logo_offset,
@@ -121,6 +170,6 @@ async function loadLanguage() {
     }
 }
 
-initLanguage();
-loadLanguage();
+// 初期化処理の順序を変更
+initLanguage().then(loadLanguage);
 
