@@ -8,10 +8,21 @@ language - The language name in your language.
 literal - The language name in English.
 font - Font to use for this language. (If you want to use a custom font, let me know in the PR).
 version - Version of the translation file.
-author - The person doing this file. Feel free to put multiple people.
+author - The person doing this file. Feel free to put multiple people, seperated by commas.
 
-Credit:
+Credits:
 - Chinese: Lingluoluo (https://github.com/Lingluoluo/p5cc). Some new lines are machine translated.
 - Help wanted for Japanese and Korean (currently is machine translated).
 
-PR to the translation files (new or old) are only accepted, please don't edit this README file, I will put your GitHub name when merging. Thank you.
+For making changes/add new to the language files:
+VERSION: 1
+Make sure this number in your language file is up-to-date when making changes with new lines.
+
+Please only make change to the language files, except:
+- en.json (The original language file, this file will kept up-to-date when there's new changes)
+- This README file. (I will add your name upon merging PR)
+- lang.json (when there's a new language, I will add it upon merging PR)
+- ABSOLUTELY DO NOT CHANGE THE AUTHOR FIELD JUST BECAUSE YOU CHANGED YOUR USERNAME.
+  You gotta contribute to the translation inside the language file.
+
+Your PR will immediately closed if your changes involve changing the content of these exceptions.
