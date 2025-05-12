@@ -111,7 +111,6 @@ function redrawText(force = false) {
             });
     
             if (isMiddle) {
-                topOffset = 0;
                 middleOffset = ((canvasText.height - fontSize * splitValue.length) / 2.5) - (fontSize / 5 * (splitValue.length));
             }
     

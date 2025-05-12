@@ -29,7 +29,7 @@
             "right": "右对齐",
 
             "vertical_align": "垂直对齐文本",
-            "shift_from_top": "或者将文本从上到下移位"
+            "shift_from_top": "将文本从上到下移位"
         }
     },
     "font": {

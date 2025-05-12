@@ -1,0 +1,65 @@
+{
+    "meta": {
+        "language": "Tiếng Việt",
+        "literal": "Vietnamese",
+        "font": "Noto Sans",
+        "version": "1",
+        "author": "sorae42"
+    },
+    "title": {
+        "name": "Persona 5 Calling Card Maker",
+        "sub": "Để tạo thư báo một cách dễ dàng.<br>Gửi thư của bạn đến những ham muốn đen tối nhất."
+    },
+    "preview": {
+        "refresh": "Làm mới"
+    },
+    "editor": {
+        "content": "Bạn muốn viết gì trên thư báo?",
+        "notice": "LƯU Ý: P5CC không tự động xuống dòng/thay đổi kích thước chữ.<br />Vui lòng nhấn Enter/Return trên bàn phím để xuống dòng.",
+        "refresh_tip": "Nếu không thấy gì thay đổi, hãy nhấn <i class=\"fa fa-refresh\"></i>Làm mới.",
+        "show_watermark": "Hiển thị đường dẫn đến trang web này",
+        "download": "Tải về"
+    },
+    "alignments": {
+        "title": "Vị trí và căn chỉnh",
+        "options": {
+            "text_align": "Căn chữ: ",
+            "left": "trái",
+            "center": "giữa",
+            "right": "phải",
+            "vertical_align": "Văn bản căn dọc",
+            "shift_from_top": "Xê dịch từ trên xuống:"
+        }
+    },
+    "font": {
+        "title": "Phông chữ",
+        "options": {
+            "family": "Đặt phông chữ",
+            "size": "với kích thước",
+            "family_tip": "Phông chữ là các font đã được cài đặt trên máy tính của bạn."
+        }
+    },
+    "decorations": {
+        "title": "Trang trí chữ",
+        "options": {
+            "stroke": "Viền chữ",
+            "width": "Đặt độ dày viền là"
+        }
+    },
+    "advanced": {
+        "title": "Nâng cao",
+        "options": {
+            "logo_title": "Tùy chọn logo",
+            "show_logo": "Hiển thị logo \"Take your heart\"",
+            "logo_size": "Tỷ lệ logo",
+            "logo_offset": "với độ dịch chuyển",
+            "delay_title": "Tốc độ trễ",
+            "delay_desc": "Độ trễ khi tạo mỗi chữ",
+            "delay_tip": "Tăng giá trị này nếu bạn cảm thấy trang web giật lag."
+        }
+    },
+    "languages": {
+        "title": "Ngôn ngữ giao diện",
+        "not_updated": "Tiếng Việt chưa được cập nhật đầy đủ cho phiên bản hiện tại của P5CC!<br>Bạn có thể đóng góp phiên bản cập nhật <a href=\"https://github.com/skyventuree/p5cc/tree/main/languages\">tại đây</a>."
+    }
+}
