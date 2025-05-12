@@ -29,7 +29,7 @@
             "right": "오른쪽",
 
             "vertical_align": "수직 정렬된 텍스트",
-            "shift_from_top": "또는 위에서부터 텍스트 이동"
+            "shift_from_top": "위에서부터 텍스트 이동"
         }
     },
     "font": {

@@ -28,7 +28,7 @@
             "center": "中央揃え",
             "right": "右揃え",
             "vertical_align": "垂直方向の配置",
-            "shift_from_top": "または上からの距離"
+            "shift_from_top": "上からの距離"
         }
     },
     "font": {
