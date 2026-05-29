@@ -18,11 +18,9 @@ Persona 5 © ATLUS. © SEGA.
 Assets:
 
 - Persona 5 Calling Card Base by [Elmind](https://www.deviantart.com/elmind).
-- Persona 5 Style Text Generator by [@LzxHahaha](https://github.com/LzxHahaha). Ported and modified by [sorae42](https://github.com/sorae42).
+- Persona 5 Style Text Generator by [@LzxHahaha](https://github.com/LzxHahaha). Ported and modified by [skyventuree](https://github.com/skyventuree).
 - Persona 5 Logo and Assets by ALTUS.
 
 All assets are all under fair use.
 
 _Credits can also be seen on the website along with links to the original site and owners, at the bottom of the page._
-
-
